@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
-import { Github, Linkedin, Mail, Instagram, ExternalLink, Award, Code, User, Trophy, X, ExternalLink as LinkIcon, Lock } from 'lucide-react'; // Added Instagram and Lock icons
-
+import { Youtube, Github, Linkedin, Mail, Instagram, ExternalLink, Award, Code, User, Trophy, X, ExternalLink as LinkIcon, Lock } from 'lucide-react'; // Added Instagram and Lock icons
+import { animate, AnimatePresence, motion, scale } from 'framer-motion'
+import Mayo from './assets/Mayo.png';
+import CrewCreate from './assets/crewCreate.png';
+import Nocturne from './assets/Nocturne.png';
+import PaWebsite from './assets/paWebsite.png';
+import PersonalWebsite from './assets/PersonalWeb.png';
+import Placeholder from './assets/Placeholder1.jpg';
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState('projects');
   const [selectedItem, setSelectedItem] = useState(null);
@@ -18,8 +24,8 @@ export default function Portfolio() {
 
   // --- START: UPDATED DATA WITH NEW PROJECT AND INSTAGRAM ---
 
-  const profileName = "Jane Doe"; // Replace with actual name
-  const profileTitle = "Computer Science Student";
+  const profileName = "Mayowa Akinyede"; // Replace with actual name
+  const profileTitle = "Hello World! This is my digital portfolio please feel free to reach out with feedback.";
   const profileSubtitle = "Fullstack & Quantum Computing Enthusiast";
 
   const resumeData = {
@@ -67,16 +73,17 @@ export default function Portfolio() {
         dates: "Oct. 2025",
         // Concise resume bullets
         description: [
-          "Engineered a **real-time, browser-based voting and elimination game** utilizing **React** for the frontend and **Firebase Firestore** for instant data synchronization across all clients.",
+          "(Live Link Isnt Set because of Privacy reasons reach out if ur curious about it!) Engineered a **real-time, browser-based voting and elimination game** utilizing **React** for the frontend and **Firebase Firestore** for instant data synchronization across all clients.",
           "Developed a password-protected **Host Console (Admin)** to manage the game flow, including setting question rounds, adjusting player points, and managing elimination.",
           "Implemented secure player registration with **Firebase Storage** for image uploads, ensuring a robust, full-stack application for live, interactive gameplay."
         ],
         // Expanded portfolio content
         blurb: "Real-time voting and elimination game.",
-        image: "https://images.unsplash.com/photo-1510511459019-5beef44a1f6e?w=400&h=250&fit=crop",
+        image: PaWebsite,
         status: "deployed",
-        liveLink: "https://elimination-game-jane.dev",
-        repoLink: "https://github.com/janedoe/interactive-elimination-game"
+        liveLink: null,
+        repoLink: null,
+        test: false
       },
       {
         title: "Create Collaborate (Crew Create)",
@@ -87,13 +94,14 @@ export default function Portfolio() {
           "Implemented **Firebase authentication, real-time database, and monetization tools**, supporting secure user access, persistent project data, and integrated payment tracking for sustainable growth."
         ],
         blurb: "Fullstack platform for indie game devs.",
-        image: "https://images.unsplash.com/photo-1542831371-29b0f74f9449?w=400&h=250&fit=crop",
+        image: CrewCreate,
         status: "WIP",
         liveLink: "#",
-        repoLink: "https://github.com/janedoe/crew-create"
+        repoLink: "https://github.com/REdR0bbin2E/UpdateWebsite",
+        test: true
       },
       {
-        title: "Nocturnal Dream Logger",
+        title: "Nocturnal Dream Logger (Nocturne)",
         tech: ["React Native", "Expo", "TypeScript", "OpenAI APIs"],
         dates: "Jan. 2025 - May 2025",
         description: [
@@ -101,15 +109,60 @@ export default function Portfolio() {
           "Engineered integration of **OpenAI GPT + DALLE-3 APIs** for automated dream analysis, recurring theme detection, and AI-powered visual storytelling of user-submitted logs."
         ],
         blurb: "AI-powered dream analysis mobile app.",
-        image: "https://images.unsplash.com/photo-1627916694605-7284f18b525d?w=400&h=250&fit=crop",
+        image: Nocturne,
         status: "static", // Updated to new static tag
         liveLink: null, // Set to null/empty to hide link button
-        repoLink: "https://github.com/janedoe/dream-logger-private" // Example private repo link
-      }
+        repoLink: "https://github.com/REdR0bbin2E/Nocturne", // Example private repo link
+        test: true
+      },
+      {
+        title: "Personal Portfolio Site",
+        blurb: "A responsive, modern web portfolio.",
+        description: "This very portfolio! A fully responsive single-page application built with React, styled using inline CSS for rapid prototyping, and focused on performance and clean UI/UX design. Demonstrates proficiency in React state management, component architecture, and responsive design principles.",
+        tech: ["React", "HTML/CSS", "JavaScript"],
+        image: PersonalWebsite,
+        status: "deployed",
+        liveLink: null,
+        repoLink: "https://github.com/janedoe/portfolio-site",
+        test: false
+      },
+      {
+        title: "Late Night Jammin (LNJ)",
+        blurb: "Game jam style website for friend groups.",
+        description: "WIP.",
+        tech: ["TBD", "TBD", "TBD"],
+        image: Placeholder,
+        status: "WIP",
+        liveLink: null,
+        repoLink: null,
+        test: false
+      },
+      {
+        title: "K-pop Trading Game (KTG)",
+        blurb: "K-pop E-card trading game.",
+        description: "WIP.",
+        tech: ["TBD", "TBD", "TBD"],
+        image: Placeholder,
+        status: "WIP",
+        liveLink: null,
+        repoLink: null,
+        test: false
+      },
+      {
+        title: "Manga To Video (MTV)",
+        blurb: "Manga to video converter.",
+        description: "WIP.",
+        tech: ["TBD", "TBD", "TBD"],
+        image: Placeholder,
+        status: "WIP",
+        liveLink: null,
+        repoLink: null,
+        test: false
+      },
     ],
     leadership: [
       {
-        title: "Officer",
+        title: "Logistics Officer",
         organization: "ACM Community",
         dates: "2024 - Present",
         description: [
@@ -117,7 +170,7 @@ export default function Portfolio() {
         ]
       },
       {
-        title: "Officer",
+        title: "Workshops Officer",
         organization: "FinTech Workshop",
         dates: "2024 - Present",
         description: [
@@ -132,76 +185,67 @@ export default function Portfolio() {
           "Hosted monthly community events and provided peer mentorship, fostering residential engagement, academic support, and a positive student living environment for each and every one of my residents."
         ]
       }
+    ],
+    hobbies: [
+      {
+        title: "Skating",
+        description: "I’ve been skating for about three months now, and honestly, it’s been a blast. I can land the basics—ollies, kickflips, and shove-its (on good days)! Skating’s become my go-to way to clear my head after long study sessions. Nothing beats cruising around and just feeling free for a while."
+      },
+      {
+        title: "Music",
+        description: "Music’s always been part of who I am. I was in band all through middle and high school—marching band included—and played both the clarinet and alto sax. Lately, I’ve been trying to dust off those skills again. I’m also a huge concert person; I’ve seen Grent Perez, Vansire, and Ginger Root live, and I swear there’s nothing like that post-concert energy."
+      },
+      {
+        title: "Soccer & Volleyball",
+        description: "I grew up loving sports, especially soccer and volleyball. They’re a fun way to stay active and competitive, but mostly I just love the team vibe—lots of laughs, energy, and the occasional overly serious match that feels like the World Cup."
+      },
+      {
+        title: "Anime & Manga",
+        description: "I’m a big fan of anime and manga—especially shonen series like Hunter x Hunter and Naruto. I love the creativity, the world-building, and those moments that make you want to train like you’re about to unlock your own power-up arc."
+      },
+      {
+        title: "Game Development",
+        description: "I started out making games in Roblox Studio back in the day (shoutout to my younger self experimenting with Lua scripts). Recently, I’ve been diving into indie game development—something about creating interactive worlds just clicks with me. Nintendo was a huge inspiration growing up; my old DS is probably what first made me want to build worlds of my own."
+      }
+
+
     ]
   };
 
   // The 'projects' array in the component is used for the Projects tab.
   // We'll merge the resume projects with the dummy projects for a more complete portfolio showcase.
-  const projects = [
-    ...resumeData.projects, // Projects from the resume
-    // Kept 2 dummy projects and modified their info slightly to fill out the tab
-    {
-      title: "Blockchain Voting System",
-      blurb: "Secure decentralized voting platform",
-      description: "A blockchain-based voting system that ensures transparency, security, and immutability of votes. Uses Ethereum smart contracts to record votes in a tamper-proof manner, while maintaining voter anonymity through cryptographic techniques. Designed for secure organizational voting.",
-      tech: ["Solidity", "Web3.js", "React"],
-      image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=250&fit=crop",
-      status: "WIP",
-      repoLink: "https://github.com/yourusername/blockchain-voting"
-    },
-    {
-      title: "Personal Portfolio Site",
-      blurb: "A responsive, modern web portfolio.",
-      description: "This very portfolio! A fully responsive single-page application built with React, styled using inline CSS for rapid prototyping, and focused on performance and clean UI/UX design. Demonstrates proficiency in React state management, component architecture, and responsive design principles.",
-      tech: ["React", "HTML/CSS", "JavaScript"],
-      image: "https://images.unsplash.com/photo-1628102491629-873b8898b3c3?w=400&h=250&fit=crop",
-      status: "deployed",
-      liveLink: "https://janedoe.dev",
-      repoLink: "https://github.com/janedoe/portfolio-site"
-    }
-  ];
 
   const hackathons = [
     {
-      title: "HackUTD 2024",
-      project: "Healthcare Chatbot",
-      achievement: "1st Place Winner",
-      date: "Oct 2024",
-      blurb: "AI-powered medical assistant",
-      description: "Developed an intelligent healthcare chatbot that helps users assess symptoms and find appropriate care. The bot uses natural language processing to understand patient concerns, provides preliminary health information, and directs users to appropriate medical resources. Won first place among 200+ participants for innovative use of AI in healthcare accessibility.",
-      tech: ["Python", "OpenAI API", "Flask", "React"],
+      title: "HackUTA 2025",
+      project: "Echo",
+      achievement: "More Info",
+      date: "Oct 2025",
+      blurb: "AI-powered Grief Reduction Application",
+      description: "Echo is a mobile app that transforms memories into living, interactive experiences. Using advanced AI and voice synthesis, it allows users to create digital memorials of loved ones—preserving their voice, personality, and spirit through heartfelt conversations. Built with empathy and modern technology, Echo offers a safe space for reflection, healing, and ongoing connection beyond loss.",
+      tech: ["Python", "Gemini API", "Flask", "React", "Auth0", "Fish Audio API"],
       teamSize: 4,
-      duration: "36 hours"
-    },
-    {
-      title: "MLH Hackathon",
-      project: "Sustainability Tracker",
-      achievement: "Best Use of API",
-      date: "Sep 2024",
-      blurb: "Carbon footprint monitoring app",
-      description: "Created a comprehensive carbon footprint tracking application that integrates with multiple APIs to monitor daily activities. Features include transportation tracking, food consumption analysis, energy usage monitoring, and personalized sustainability recommendations. The app gamifies eco-friendly behavior with challenges and achievements to encourage sustainable living.",
-      tech: ["React Native", "Node.js", "MongoDB", "Google Maps API"],
-      teamSize: 3,
       duration: "24 hours"
     },
     {
-      title: "Local Code Jam",
-      project: "Student Study Planner",
-      achievement: "Finalist",
-      date: "Aug 2024",
-      blurb: "Smart scheduling with AI recommendations",
-      description: "Built an intelligent study planning system that analyzes student schedules, assignment deadlines, and personal productivity patterns to create optimized study plans. Uses machine learning to predict how long tasks will take based on subject difficulty and past performance. Includes Pomodoro timer integration, distraction blocking, and progress tracking to help students manage their time effectively.",
-      tech: ["Vue.js", "Python", "SQLite", "TensorFlow"],
-      teamSize: 2,
-      duration: "12 hours"
+      title: "UNTNSBE Bytes for Borders",
+      project: "CommConnect",
+      achievement: "More Info",
+      date: "Oct 2025",
+      blurb: "Volunteering opportunities website",
+      description: "CommConnect is a website that connects college students with local volunteering oportunities in the area.",
+      tech: ["React", "Node.js", "Firebase", "Clark API"],
+      teamSize: 4,
+      duration: "24 hours"
     }
   ];
 
   const socials = [
     { name: "GitHub", icon: Github, link: "https://github.com/REdR0bbin2E", username: "@REdR0bbin2E" },
     { name: "LinkedIn", icon: Linkedin, link: "https://www.linkedin.com/in/mayowa-akinyede-cs/", username: "Mayowa Akinyede" },
-    { name: "Email", icon: Mail, link: "mailto:mayo.akin2@gmail.com", username: "Nayo.akin2@gmail.com" },
-    { name: "Instagram", icon: Instagram, link: "https://www.instagram.com/akacompsci/", username: "@akacompsci" } // New Instagram entry
+    { name: "Email", icon: Mail, link: null, username: "Mayo.akin2@gmail.com" },
+    { name: "Instagram", icon: Instagram, link: "https://www.instagram.com/akacompsci/", username: "@akacompsci" }, // New Instagram entry
+    { name: "YouTube", icon: Youtube, link: null, username: "Coming Soon.." }
   ];
 
   // --- END: UPDATED DATA WITH NEW PROJECT AND INSTAGRAM ---
@@ -218,13 +262,13 @@ export default function Portfolio() {
   // Helper function to determine project status badge style and text
   const getStatusBadge = (status) => {
     if (status === 'deployed') {
-      return { style: styles.statusDeployed, text: '✓ Deployed' };
+      return { style: styles.statusDeployed2, text: '✓ Deployed' };
     } else if (status === 'WIP') {
-      return { style: styles.statusWIP, text: '🚧 WIP' };
+      return { style: styles.statusWIP2, text: '🚧 WIP' };
     } else if (status === 'static') {
-      return { style: styles.statusStatic, text: '🔒 Static/Private' };
+      return { style: styles.statusStatic2, text: '🔒 Static/Private' };
     }
-    return { style: styles.statusWIP, text: '🚧 WIP' }; // Default fallback
+    return { style: styles.statusWIP2, text: '🚧 WIP' }; // Default fallback
   };
 
 
@@ -233,7 +277,7 @@ export default function Portfolio() {
       <header style={styles.hero}>
         <div style={styles.heroContent}>
           <div style={styles.profileCircle}>
-            <User size={64} color="#F7E7CE" />
+            <img src={Mayo} size={64} style={{ maxWidth: "125px", borderRadius: 360 }} />
           </div>
           <h1 style={styles.name}>{profileName}</h1>
           <p style={styles.title}>{profileTitle}</p>
@@ -243,34 +287,42 @@ export default function Portfolio() {
       </header>
 
       <nav style={styles.navigation}>
-        <button
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+
           style={{ ...styles.navButton, ...(activeSection === 'projects' ? styles.navButtonActive : {}) }}
           onClick={() => setActiveSection('projects')}
         >
           <Code size={20} />
           <span>Projects</span>
-        </button>
-        <button
+        </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+
           style={{ ...styles.navButton, ...(activeSection === 'hackathons' ? styles.navButtonActive : {}) }}
           onClick={() => setActiveSection('hackathons')}
         >
           <Trophy size={20} />
           <span>Hackathons</span>
-        </button>
-        <button
+        </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+
           style={{ ...styles.navButton, ...(activeSection === 'resume' ? styles.navButtonActive : {}) }}
           onClick={() => setActiveSection('resume')}
         >
           <User size={20} />
           <span>Resume</span>
-        </button>
-        <button
+        </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+
           style={{ ...styles.navButton, ...(activeSection === 'socials' ? styles.navButtonActive : {}) }}
           onClick={() => setActiveSection('socials')}
         >
           <Award size={20} />
           <span>Connect</span>
-        </button>
+        </motion.button>
       </nav>
 
       <main style={styles.main}>
@@ -278,11 +330,13 @@ export default function Portfolio() {
           <div style={styles.section}>
             <h2 style={styles.sectionTitle}>Personal Projects</h2>
             <div style={styles.grid}>
-              {projects.map((project, idx) => {
+              {resumeData.projects.map((project, idx) => {
                 const { style: statusStyle, text: statusText } = getStatusBadge(project.status);
                 return (
-                  <div
+                  <motion.div
                     key={idx}
+                    initial={{ scale: 1 }}
+                    whileHover={{ scale: 1.1, border: "2px #dbafafff" }}
                     style={{ ...styles.card, animationDelay: `${idx * 0.1}s` }}
                     onClick={() => openModal(project, 'project')}
                   >
@@ -304,274 +358,311 @@ export default function Portfolio() {
                         ))}
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 )
               })}
             </div>
           </div>
-        )}
+        )
+        }
 
-        {activeSection === 'hackathons' && (
-          <div style={styles.section}>
-            <h2 style={styles.sectionTitle}>Hackathon Achievements</h2>
-            <div style={styles.grid}>
-              {hackathons.map((hack, idx) => (
-                <div
-                  key={idx}
-                  style={{ ...styles.card, ...styles.hackCard, animationDelay: `${idx * 0.1}s` }}
-                  onClick={() => openModal(hack, 'hackathon')}
-                >
-                  <div style={styles.hackHeader}>
-                    <Trophy size={24} color="#743636" />
-                    <span style={styles.hackDate}>{hack.date}</span>
-                  </div>
-                  <h3 style={styles.cardTitle}>{hack.title}</h3>
-                  <p style={styles.hackProject}>{hack.project}</p>
-                  <p style={styles.cardDescription}>{hack.blurb}</p>
-                  <div style={styles.achievement}>{hack.achievement}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {activeSection === 'resume' && (
-          <div style={styles.section}>
-            <h2 style={styles.sectionTitle}>Resume</h2>
-            <div style={styles.resumeContainer}>
-              <div style={styles.resumeSection}>
-                <h3 style={styles.resumeSectionTitle}>Education</h3>
-                <div style={styles.resumeItem}>
-                  <h4 style={styles.resumeItemTitle}>{resumeData.education.degree}</h4>
-                  <p style={styles.resumeItemSubtitle}>{resumeData.education.university} • {resumeData.education.dates}</p>
-                  <p style={styles.resumeItemDetail}>GPA: {resumeData.education.gpa}</p>
-                  <p style={styles.resumeItemDetail}>Relevant Coursework: **{resumeData.education.coursework}**</p>
-                </div>
-              </div>
-
-              <div style={styles.resumeSection}>
-                <h3 style={styles.resumeSectionTitle}>Technical Skills</h3>
-                <div style={styles.skillsGrid}>
-                  <div style={styles.skillCategory}>
-                    <h4 style={styles.skillCategoryTitle}>Languages</h4>
-                    <p style={styles.skillList}>{resumeData.skills.languages}</p>
-                  </div>
-                  <div style={styles.skillCategory}>
-                    <h4 style={styles.skillCategoryTitle}>Frameworks</h4>
-                    <p style={styles.skillList}>{resumeData.skills.frameworks}</p>
-                  </div>
-                  <div style={styles.skillCategory}>
-                    <h4 style={styles.skillCategoryTitle}>Libraries</h4>
-                    <p style={styles.skillList}>{resumeData.skills.libraries}</p>
-                  </div>
-                  <div style={styles.skillCategory}>
-                    <h4 style={styles.skillCategoryTitle}>Developer Tools</h4>
-                    <p style={styles.skillList}>{resumeData.skills.devTools}</p>
-                  </div>
-                  <div style={styles.skillCategory}>
-                    <h4 style={styles.skillCategoryTitle}>Concepts</h4>
-                    <p style={styles.skillList}>{resumeData.skills.concepts}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div style={styles.resumeSection}>
-                <h3 style={styles.resumeSectionTitle}>Experience</h3>
-                {resumeData.experience.map((job, idx) => (
-                  <div style={styles.resumeItem} key={idx}>
-                    <h4 style={styles.resumeItemTitle}>{job.title}</h4>
-                    <p style={styles.resumeItemSubtitle}>{job.company} • {job.dates}</p>
-                    {renderResumeList(job.description)}
-                  </div>
-                ))}
-              </div>
-
-              <div style={styles.resumeSection}>
-                <h3 style={styles.resumeSectionTitle}>Projects (Select)</h3>
-                {/* Reusing existing project data to display in resume format */}
-                {resumeData.projects.map((project, idx) => (
-                  <div style={styles.resumeItem} key={idx}>
-                    <h4 style={styles.resumeItemTitle}>{project.title}</h4>
-                    <p style={styles.resumeItemSubtitle}>Technologies: {project.tech.join(', ')} • {project.dates}</p>
-                    {/* Remove bold markdown for resume list item to keep it clean */}
-                    {renderResumeList(project.description.map(desc => desc.replace(/\*\*/g, '')))}
-                  </div>
-                ))}
-              </div>
-
-              <div style={styles.resumeSection}>
-                <h3 style={styles.resumeSectionTitle}>Leadership & Involvement</h3>
-                {resumeData.leadership.map((role, idx) => (
-                  <div style={styles.resumeItem} key={idx}>
-                    <h4 style={styles.resumeItemTitle}>{role.title} ({role.organization})</h4>
-                    <p style={styles.resumeItemSubtitle}>UT Dallas • {role.dates}</p>
-                    {renderResumeList(role.description.map(desc => desc.replace(/\*\*/g, '')))}
-                  </div>
-                ))}
-              </div>
-
-
-              <div style={styles.downloadButton}>
-                <a href="#" style={styles.downloadLink}>
-                  Download Full Resume (PDF)
-                </a>
-              </div>
-            </div>
-            <p style={styles.resumeNote}>*Project bullet points on the **'Projects'** tab are expanded with technical context and live links for an in-depth portfolio review.</p>
-          </div>
-        )}
-
-        {activeSection === 'socials' && (
-          <div style={styles.section}>
-            <h2 style={styles.sectionTitle}>Let's Connect</h2>
-            <div style={styles.socialsGrid}>
-              {socials.map((social, idx) => {
-                const Icon = social.icon;
-                return (
-                  <a
+        {
+          activeSection === 'hackathons' && (
+            <div style={styles.section}>
+              <h2 style={styles.sectionTitle}>Hackathon Achievements</h2>
+              <div style={styles.grid}>
+                {hackathons.map((hack, idx) => (
+                  <div
                     key={idx}
-                    href={social.link}
-                    style={{ ...styles.socialCard, animationDelay: `${idx * 0.1}s` }}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    style={{ ...styles.card, ...styles.hackCard, animationDelay: `${idx * 0.1}s` }}
+                    onClick={() => openModal(hack, 'hackathon')}
                   >
-                    <div style={styles.socialIcon}>
-                      <Icon size={32} />
+                    <div style={styles.hackHeader}>
+                      <Trophy size={24} color="#743636" />
+                      <span style={styles.hackDate}>{hack.date}</span>
                     </div>
-                    <h3 style={styles.socialName}>{social.name}</h3>
-                    <p style={styles.socialUsername}>{social.username}</p>
-                  </a>
-                );
-              })}
+                    <h3 style={styles.cardTitle}>{hack.title}</h3>
+                    <p style={styles.hackProject}>{hack.project}</p>
+                    <p style={styles.cardDescription}>{hack.blurb}</p>
+                    <div style={styles.achievement}>{hack.achievement}</div>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        )}
-      </main>
+          )
+        }
+
+        {
+          activeSection === 'resume' && (
+            <div style={styles.section}>
+              <h2 style={styles.sectionTitle}>Resume</h2>
+              <div style={styles.resumeContainer}>
+                <div style={styles.resumeSection}>
+                  <h3 style={styles.resumeSectionTitle}>Education</h3>
+                  <div style={styles.resumeItem}>
+                    <h4 style={styles.resumeItemTitle}>{resumeData.education.degree}</h4>
+                    <p style={styles.resumeItemSubtitle}>{resumeData.education.university} • {resumeData.education.dates}</p>
+                    <p style={styles.resumeItemDetail}>GPA: {resumeData.education.gpa}</p>
+                    <p style={{ ...styles.resumeItemDetail, marginTop: 10 }}>Relevant Coursework: **{resumeData.education.coursework}**</p>
+
+                  </div>
+                </div>
+
+                <div style={styles.resumeSection}>
+                  <h3 style={styles.resumeSectionTitle}>Technical Skills</h3>
+                  <div style={styles.skillsGrid}>
+                    <div style={styles.skillCategory}>
+                      <h4 style={styles.skillCategoryTitle}>Languages</h4>
+                      <p style={styles.skillList}>{resumeData.skills.languages}</p>
+                    </div>
+                    <div style={styles.skillCategory}>
+                      <h4 style={styles.skillCategoryTitle}>Frameworks</h4>
+                      <p style={styles.skillList}>{resumeData.skills.frameworks}</p>
+                    </div>
+                    <div style={styles.skillCategory}>
+                      <h4 style={styles.skillCategoryTitle}>Libraries</h4>
+                      <p style={styles.skillList}>{resumeData.skills.libraries}</p>
+                    </div>
+                    <div style={styles.skillCategory}>
+                      <h4 style={styles.skillCategoryTitle}>Developer Tools</h4>
+                      <p style={styles.skillList}>{resumeData.skills.devTools}</p>
+                    </div>
+                    <div style={styles.skillCategory}>
+                      <h4 style={styles.skillCategoryTitle}>Concepts</h4>
+                      <p style={styles.skillList}>{resumeData.skills.concepts}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div style={styles.resumeSection}>
+                  <h3 style={styles.resumeSectionTitle}>Experience</h3>
+                  {resumeData.experience.map((job, idx) => (
+                    <div style={styles.resumeItem} key={idx}>
+                      <h4 style={styles.resumeItemTitle}>{job.title}</h4>
+                      <p style={styles.resumeItemSubtitle}>{job.company} • {job.dates}</p>
+                      {renderResumeList(job.description)}
+                    </div>
+                  ))}
+                </div>
+
+                <div style={styles.resumeSection}>
+                  <h3 style={styles.resumeSectionTitle}>Projects</h3>
+                  {/* Reusing existing project data to display in resume format */}
+                  {resumeData.projects.map((project, idx) => (
+
+
+                    project.test === true && (
+                      <div style={styles.resumeItem} key={idx}>
+                        <h4 style={styles.resumeItemTitle}>{project.title}</h4>
+                        <p style={styles.resumeItemSubtitle}>Technologies: {project.tech.join(', ')} • {project.dates}</p>
+                        {/* Remove bold markdown for resume list item to keep it clean */}
+                        {renderResumeList(project.description.map(desc => desc.replace(/\*\*/g, '')))}
+                      </div>
+                    )
+
+
+
+
+                  ))}
+                </div>
+
+                <div style={styles.resumeSection}>
+                  <h3 style={styles.resumeSectionTitle}>Leadership & Involvement</h3>
+                  {resumeData.leadership.map((role, idx) => (
+                    <div style={styles.resumeItem} key={idx}>
+                      <h4 style={styles.resumeItemTitle}>{role.title} ({role.organization})</h4>
+                      <p style={styles.resumeItemSubtitle}>UT Dallas • {role.dates}</p>
+                      {renderResumeList(role.description.map(desc => desc.replace(/\*\*/g, '')))}
+                    </div>
+                  ))}
+                  <h4 style={{ color: "#583434ff" }}>Other Involvement:</h4>
+                  <p style={{ color: "black" }}>UTD National Society of Black Engineers • Anime Orchestra Ensemble • InterVarsity Fellowship</p>
+
+
+
+                </div>
+
+                <div style={styles.resumeSection}>
+                  <h3 style={styles.resumeSectionTitle}>Hobbies & Interests</h3>
+                  {resumeData.hobbies.map((hobby, idx) => (
+                    <div style={{ ...styles.resumeItem, color: "#6f6464ff" }} key={idx}>
+
+                      <h4>{hobby.title}
+                        <p style={{ fontWeight: 400 }}>{hobby.description}</p>
+
+                      </h4>
+                    </div>
+                  ))}
+                </div>
+
+
+                <div style={styles.downloadButton}>
+                  <a href="#" style={styles.downloadLink}>
+                    Download Full Resume (PDF)
+                  </a>
+                </div>
+              </div>
+              <p style={styles.resumeNote}>*Project bullet points on the **'Projects'** tab are expanded with technical context and live links for an in-depth portfolio review.</p>
+            </div>
+          )
+        }
+
+        {
+          activeSection === 'socials' && (
+            <div style={styles.section}>
+              <h2 style={styles.sectionTitle}>Let's Connect</h2>
+              <div style={styles.socialsGrid}>
+                {socials.map((social, idx) => {
+                  const Icon = social.icon;
+                  return (
+                    <motion.a
+                      key={idx}
+                      href={social.link}
+                      style={{ ...styles.socialCard, animationDelay: `${idx * 0.1}s`, border: "2px solid white" }}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.1 }}
+                    >
+                      <div style={styles.socialIcon}>
+                        <Icon size={32} />
+                      </div>
+                      <h3 style={styles.socialName}>{social.name}</h3>
+                      <p style={styles.socialUsername}>{social.username}</p>
+                    </motion.a>
+                  );
+                })}
+              </div>
+            </div>
+          )
+        }
+      </main >
 
       {/* Modal */}
-      {selectedItem && (
-        <div style={styles.modalOverlay} onClick={closeModal}>
-          <div style={styles.modal} onClick={(e) => e.stopPropagation()}>
-            <button style={styles.closeButton} onClick={closeModal}>
-              <X size={24} />
-            </button>
+      {
+        selectedItem && (
+          <div style={styles.modalOverlay} onClick={closeModal}>
+            <div style={styles.modal} onClick={(e) => e.stopPropagation()}>
+              <button style={styles.closeButton} onClick={closeModal}>
+                <X size={24} />
+              </button>
 
-            {modalType === 'project' && (
-              <>
-                <img src={selectedItem.image} alt={selectedItem.title} style={styles.modalImage} />
+              {modalType === 'project' && (
+                <>
+                  <img src={selectedItem.image} alt={selectedItem.title} style={styles.modalImage} />
+                  <div style={styles.modalContent}>
+                    <div style={styles.modalHeader}>
+                      <h2 style={styles.modalTitle}>{selectedItem.title}</h2>
+                      <span style={getStatusBadge(selectedItem.status).style}>
+                        {getStatusBadge(selectedItem.status).text}
+                      </span>
+                    </div>
+                    <p style={styles.modalDescription}>
+                      {/* Render detailed description for projects, emphasizing bolded words */}
+                      {Array.isArray(selectedItem.description)
+                        ? selectedItem.description.map((desc, i) => <p key={i} dangerouslySetInnerHTML={{ __html: desc.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} style={{ margin: '8px 0', lineHeight: '1.6' }} />)
+                        : selectedItem.description}
+                    </p>
+                    <div style={styles.techStack}>
+                      {selectedItem.tech.map((tech, i) => (
+                        <span key={i} style={styles.techBadge}>{tech}</span>
+                      ))}
+                    </div>
+                    <div style={styles.modalButtons}>
+                      {selectedItem.liveLink && selectedItem.liveLink !== '#' && (
+                        <a href={selectedItem.liveLink} target="_blank" rel="noopener noreferrer" style={styles.primaryButton}>
+                          <LinkIcon size={20} />
+                          <span>View Live Site</span>
+                        </a>
+                      )}
+                      {selectedItem.repoLink && (
+                        <a href={selectedItem.repoLink} target="_blank" rel="noopener noreferrer" style={selectedItem.liveLink && selectedItem.liveLink !== '#' ? styles.secondaryButton : styles.primaryButton}>
+                          <Github size={20} />
+                          <span>View Repository</span>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {modalType === 'hackathon' && (
                 <div style={styles.modalContent}>
                   <div style={styles.modalHeader}>
+                    <Trophy size={32} color="#743636" />
                     <h2 style={styles.modalTitle}>{selectedItem.title}</h2>
-                    <span style={getStatusBadge(selectedItem.status).style}>
-                      {getStatusBadge(selectedItem.status).text}
-                    </span>
                   </div>
-                  <p style={styles.modalDescription}>
-                    {/* Render detailed description for projects, emphasizing bolded words */}
-                    {Array.isArray(selectedItem.description)
-                      ? selectedItem.description.map((desc, i) => <p key={i} dangerouslySetInnerHTML={{ __html: desc.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} style={{ margin: '8px 0', lineHeight: '1.6' }} />)
-                      : selectedItem.description}
-                  </p>
+                  <div style={styles.hackathonDetails}>
+                    <div style={styles.detailItem}>
+                      <strong>Project:</strong> {selectedItem.project}
+                    </div>
+                    <div style={styles.detailItem}>
+                      <strong>Achievement:</strong> {selectedItem.achievement}
+                    </div>
+                    <div style={styles.detailItem}>
+                      <strong>Date:</strong> {selectedItem.date}
+                    </div>
+                    <div style={styles.detailItem}>
+                      <strong>Team Size:</strong> {selectedItem.teamSize} members
+                    </div>
+                    <div style={styles.detailItem}>
+                      <strong>Duration:</strong> {selectedItem.duration}
+                    </div>
+                  </div>
+                  <p style={styles.modalDescription}>{selectedItem.description}</p>
                   <div style={styles.techStack}>
                     {selectedItem.tech.map((tech, i) => (
                       <span key={i} style={styles.techBadge}>{tech}</span>
                     ))}
                   </div>
-                  <div style={styles.modalButtons}>
-                    {selectedItem.liveLink && selectedItem.liveLink !== '#' && (
-                      <a href={selectedItem.liveLink} target="_blank" rel="noopener noreferrer" style={styles.primaryButton}>
-                        <LinkIcon size={20} />
-                        <span>View Live Site</span>
-                      </a>
-                    )}
-                    {selectedItem.repoLink && (
-                      <a href={selectedItem.repoLink} target="_blank" rel="noopener noreferrer" style={selectedItem.liveLink && selectedItem.liveLink !== '#' ? styles.secondaryButton : styles.primaryButton}>
-                        <Github size={20} />
-                        <span>View Repository</span>
-                      </a>
-                    )}
-                  </div>
                 </div>
-              </>
-            )}
-
-            {modalType === 'hackathon' && (
-              <div style={styles.modalContent}>
-                <div style={styles.modalHeader}>
-                  <Trophy size={32} color="#743636" />
-                  <h2 style={styles.modalTitle}>{selectedItem.title}</h2>
-                </div>
-                <div style={styles.hackathonDetails}>
-                  <div style={styles.detailItem}>
-                    <strong>Project:</strong> {selectedItem.project}
-                  </div>
-                  <div style={styles.detailItem}>
-                    <strong>Achievement:</strong> {selectedItem.achievement}
-                  </div>
-                  <div style={styles.detailItem}>
-                    <strong>Date:</strong> {selectedItem.date}
-                  </div>
-                  <div style={styles.detailItem}>
-                    <strong>Team Size:</strong> {selectedItem.teamSize} members
-                  </div>
-                  <div style={styles.detailItem}>
-                    <strong>Duration:</strong> {selectedItem.duration}
-                  </div>
-                </div>
-                <p style={styles.modalDescription}>{selectedItem.description}</p>
-                <div style={styles.techStack}>
-                  {selectedItem.tech.map((tech, i) => (
-                    <span key={i} style={styles.techBadge}>{tech}</span>
-                  ))}
-                </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
-        </div>
-      )}
+        )
+      }
 
       <style>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
 
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
 
-        @keyframes slideIn {
-          from {
-            opacity: 0;
-            transform: translateX(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
+        @keyframes slideIn {
+          from {
+            opacity: 0;
+            transform: translateX(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
 
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-      `}</style>
-    </div>
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+      `}</style>
+    </div >
   );
 }
 
@@ -710,7 +801,7 @@ const styles = {
   statusDeployed: {
     position: 'absolute',
     top: '12px',
-    right: '12px',
+    right: '55px',
     padding: '6px 12px',
     background: '#10b981',
     color: 'white',
@@ -722,7 +813,7 @@ const styles = {
   statusWIP: {
     position: 'absolute',
     top: '12px',
-    right: '12px',
+    right: '55px',
     padding: '6px 12px',
     background: '#f59e0b',
     color: 'white',
@@ -732,6 +823,42 @@ const styles = {
     boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
   },
   statusStatic: {
+    position: 'absolute',
+    top: '12px',
+    right: '55px',
+    padding: '6px 12px',
+    background: '#4b5563', // A dark grey/blue for static/private
+    color: 'white',
+    borderRadius: '20px',
+    fontSize: '12px',
+    fontWeight: '600',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+  },
+  statusDeployed2: {
+    position: 'absolute',
+    top: '12px',
+    right: '12px',
+    padding: '6px 12px',
+    background: '#10b981',
+    color: 'white',
+    borderRadius: '20px',
+    fontSize: '12px',
+    fontWeight: '600',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+  },
+  statusWIP2: {
+    position: 'absolute',
+    top: '12px',
+    right: '12px',
+    padding: '6px 12px',
+    background: '#f59e0b',
+    color: 'white',
+    borderRadius: '20px',
+    fontSize: '12px',
+    fontWeight: '600',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+  },
+  statusStatic2: {
     position: 'absolute',
     top: '12px',
     right: '12px',
@@ -971,10 +1098,14 @@ const styles = {
   },
   closeButton: {
     position: 'absolute',
-    top: '16px',
-    right: '16px',
+    top: '10px',
+    left: '15px',
     background: 'none',
-    border: 'none',
+    borderRadius: 1000,
+    padding: 5,
+    paddingBottom: 3,
+    paddingTop: 3,
+    background: "#d6bcbcff",
     cursor: 'pointer',
     color: '#562C2C',
     zIndex: 100,
