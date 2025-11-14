@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Youtube, Github, Linkedin, Mail, Instagram, ExternalLink, Award, Code, User, Trophy, X, ExternalLink as LinkIcon, Lock } from 'lucide-react'; // Added Instagram and Lock icons
 import { animate, AnimatePresence, motion, scale } from 'framer-motion'
 import Mayo from './assets/Mayo.png';
 import CrewCreate from './assets/crewCreate.png';
 import Nocturne from './assets/Nocturne.png';
+import Echoes from './assets/echoes.png';
+import CommConnect from './assets/CommConnect.png';
+import Navi from './assets/Navi.png';
 import PaWebsite from './assets/paWebsite.png';
 import PersonalWebsite from './assets/PersonalWeb.png';
 import Placeholder from './assets/Placeholder1.jpg';
@@ -11,6 +14,8 @@ export default function Portfolio() {
   const [activeSection, setActiveSection] = useState('projects');
   const [selectedItem, setSelectedItem] = useState(null);
   const [modalType, setModalType] = useState(null);
+  const [multipleImages, setMultipleImages] = useState(true);
+  const [selectedItemImageIndex, setSelectedItemImageIndex] = useState(0)
 
   const openModal = (item, type) => {
     setSelectedItem(item);
@@ -26,7 +31,7 @@ export default function Portfolio() {
 
   const profileName = "Mayowa Akinyede"; // Replace with actual name
   const profileTitle = "Hello World! This is my digital portfolio please feel free to reach out with feedback.";
-  const profileSubtitle = "Fullstack & Quantum Computing Enthusiast";
+  const profileSubtitle = "Fullstack, Quantum Computing, and Game Development Enthusiast";
 
   const resumeData = {
     education: {
@@ -217,26 +222,46 @@ export default function Portfolio() {
 
   const hackathons = [
     {
-      title: "HackUTA 2025",
+      title: "Hack Arlington 2025",
       project: "Echo",
-      achievement: "More Info",
+      achievement: "Explore Project",
       date: "Oct 2025",
-      blurb: "AI-powered Grief Reduction Application",
-      description: "Echo is a mobile app that transforms memories into living, interactive experiences. Using advanced AI and voice synthesis, it allows users to create digital memorials of loved ones—preserving their voice, personality, and spirit through heartfelt conversations. Built with empathy and modern technology, Echo offers a safe space for reflection, healing, and ongoing connection beyond loss.",
-      tech: ["Python", "Gemini API", "Flask", "React", "Auth0", "Fish Audio API"],
-      teamSize: 4,
-      duration: "24 hours"
+      blurb: "Conversational memorial companion that keeps the voice of loved ones close.",
+      description: "Echo reimagines remembrance by blending AI conversation, voice synthesis, and memory preservation into a single mobile experience. Users craft an “Echo” by sharing stories, tone, and traits, then hold natural conversations powered by Google Gemini while Fish.Audio recreates the familiar warmth of their loved one’s voice. Every session is saved, creating an ongoing journal of healing and reflection.",
+      tech: ["React Native", "Expo", "FastAPI", "Auth0", "MongoDB Atlas", "Google Gemini", "Fish.Audio"],
+      teamSize: 3,
+      duration: "24 hours",
+      repoLink: "https://github.com/REdR0bbin2E/voice",
+      devpostLink: "https://devpost.com/software/echos-vprx96?_gl=1*acfrb9*_gcl_au*MTc1Mjg5MDgxOS4xNzU4ODI5Mzgx*_ga*NDY3OTYyMDQzLjE3NTg4MjkzODI.*_ga_0YHJK3Y10M*czE3NjMwMTczODYkbzE4JGcxJHQxNzYzMDE3NTE1JGo3JGwwJGgw",
+      image: Echoes
     },
     {
-      title: "UNTNSBE Bytes for Borders",
+      title: "HackUNT x NSBE 2025",
       project: "CommConnect",
-      achievement: "More Info",
+      achievement: "Explore Project",
       date: "Oct 2025",
-      blurb: "Volunteering opportunities website",
-      description: "CommConnect is a website that connects college students with local volunteering oportunities in the area.",
-      tech: ["React", "Node.js", "Firebase", "Clark API"],
+      blurb: "Campus-wide platform that pairs students with meaningful service opportunities.",
+      description: "CommConnect helps college students turn empathy into action. We aggregated volunteer postings from partner organizations, layered in skill-matching filters, and built automated reminders so students can discover, register, and show up for service in just a few taps. A lightweight admin portal keeps community partners in the loop with real-time sign-up metrics.",
+      tech: ["React", "Node.js", "Firebase", "Google Maps API"],
       teamSize: 4,
-      duration: "24 hours"
+      duration: "24 hours",
+      repoLink: "https://github.com/REdR0bbin2E/hackUNTNSBE",
+      devpostLink: null,
+      image: CommConnect
+    },
+    {
+      title: "HackUTD 2025",
+      project: "NAVI",
+      achievement: "Explore Project",
+      date: "Nov 2025",
+      blurb: "Hands-free desktop agent that listens, sees, and completes multi-step workflows.",
+      description: "NAVI (Neural Agent for Visual Interaction) combines low-latency speech recognition, pose-aware gesture control, and multimodal reasoning to orchestrate your desktop like a teammate. Say, “Summarize this PDF and email it to Dr. Smith,” and NAVI plans every action—from reading the document to drafting and sending the email—while 'TensorRT-powered gesture tracking keeps the experience accessible for users with limited mobility.'",
+      tech: ["Electron", "React", "NVIDIA Track", "GPT-o4 API", "ElevenLabs"],
+      teamSize: 4,
+      duration: "24 hours",
+      repoLink: "https://github.com/cheeky4life/navi",
+      devpostLink: "https://devpost.com/software/navi-jp2be3?_gl=1*15bodkh*_gcl_au*MTc1Mjg5MDgxOS4xNzU4ODI5Mzgx*_ga*NDY3OTYyMDQzLjE3NTg4MjkzODI.*_ga_0YHJK3Y10M*czE3NjMwMTczODYkbzE4JGcxJHQxNzYzMDE3NDcxJGo1MSRsMCRoMA..",
+      image: Navi
     }
   ];
 
@@ -377,14 +402,24 @@ export default function Portfolio() {
                     style={{ ...styles.card, ...styles.hackCard, animationDelay: `${idx * 0.1}s` }}
                     onClick={() => openModal(hack, 'hackathon')}
                   >
-                    <div style={styles.hackHeader}>
-                      <Trophy size={24} color="#743636" />
-                      <span style={styles.hackDate}>{hack.date}</span>
+                    <div style={styles.hackImageWrapper}>
+                      <img
+                        src={hack.image || Placeholder}
+                        alt={`${hack.project} showcase`}
+                        style={styles.hackImage}
+                      />
+                      <span style={styles.hackDateBadge}>{hack.date}</span>
                     </div>
-                    <h3 style={styles.cardTitle}>{hack.title}</h3>
-                    <p style={styles.hackProject}>{hack.project}</p>
-                    <p style={styles.cardDescription}>{hack.blurb}</p>
-                    <div style={styles.achievement}>{hack.achievement}</div>
+                    <div style={styles.hackCardBody}>
+                      <div style={styles.hackHeader}>
+                        <Trophy size={24} color="#743636" />
+                        <span style={styles.hackDate}>{hack.duration}</span>
+                      </div>
+                      <h3 style={styles.cardTitle}>{hack.title}</h3>
+                      <p style={styles.hackProject}>{hack.project}</p>
+                      <p style={styles.cardDescription}>{hack.blurb}</p>
+                      <div style={styles.achievement}>{hack.achievement}</div>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -548,6 +583,17 @@ export default function Portfolio() {
 
               {modalType === 'project' && (
                 <>
+                  {/* WORKING HERE */}
+                  {multipleImages === false && (
+                    <div style={{ marginLeft: "5px", position: "absolute", marginTop: "20%", width: "95%", justifyContent: "space-between", justifyContent: "space-between", display: 'flex', alignItems: "center", padding: "10px" }}>
+                      <button style={{ borderRadius: 360 }} onClick={() => setSelectedItemImageIndex(selectedItemImageIndex + 1)}> L </button>
+                      <button style={{ borderRadius: 360 }}> R </button>
+                    </div>
+
+
+                  )}
+
+
                   <img src={selectedItem.image} alt={selectedItem.title} style={styles.modalImage} />
                   <div style={styles.modalContent}>
                     <div style={styles.modalHeader}>
@@ -586,35 +632,66 @@ export default function Portfolio() {
               )}
 
               {modalType === 'hackathon' && (
-                <div style={styles.modalContent}>
-                  <div style={styles.modalHeader}>
-                    <Trophy size={32} color="#743636" />
-                    <h2 style={styles.modalTitle}>{selectedItem.title}</h2>
+                <>
+                  <img
+                    src={selectedItem.image || Placeholder}
+                    alt={`${selectedItem.project} showcase`}
+                    style={styles.modalImage}
+                  />
+                  <div style={styles.modalContent}>
+                    <div style={styles.hackModalHeader}>
+                      <div style={styles.hackModalTitleGroup}>
+                        <Trophy size={32} color="#743636" />
+                        <div>
+                          <h2 style={styles.modalTitle}>{selectedItem.title}</h2>
+                          <p style={styles.hackModalProject}>{selectedItem.project}</p>
+                        </div>
+                      </div>
+                      <div style={styles.hackModalMeta}>
+                        <span style={styles.hackDate}>{selectedItem.date}</span>
+                        <span style={styles.hackDurationTag}>{selectedItem.duration}</span>
+                      </div>
+                    </div>
+                    <div style={styles.hackathonDetails}>
+                      <div style={styles.detailItem}>
+                        <strong>Achievement:</strong> {selectedItem.achievement}
+                      </div>
+                      <div style={styles.detailItem}>
+                        <strong>Team Size:</strong> {selectedItem.teamSize} members
+                      </div>
+                    </div>
+                    <p style={styles.modalDescription}>{selectedItem.description}</p>
+                    <div style={styles.techStack}>
+                      {selectedItem.tech.map((tech, i) => (
+                        <span key={i} style={styles.techBadge}>{tech}</span>
+                      ))}
+                    </div>
+                    <div style={styles.modalButtons}>
+                      {selectedItem.devpostLink && (
+                        <a
+                          href={selectedItem.devpostLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={styles.primaryButton}
+                        >
+                          <ExternalLink size={20} />
+                          <span>View Devpost</span>
+                        </a>
+                      )}
+                      {selectedItem.repoLink && (
+                        <a
+                          href={selectedItem.repoLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={selectedItem.devpostLink ? styles.secondaryButton : styles.primaryButton}
+                        >
+                          <Github size={20} />
+                          <span>View Repository</span>
+                        </a>
+                      )}
+                    </div>
                   </div>
-                  <div style={styles.hackathonDetails}>
-                    <div style={styles.detailItem}>
-                      <strong>Project:</strong> {selectedItem.project}
-                    </div>
-                    <div style={styles.detailItem}>
-                      <strong>Achievement:</strong> {selectedItem.achievement}
-                    </div>
-                    <div style={styles.detailItem}>
-                      <strong>Date:</strong> {selectedItem.date}
-                    </div>
-                    <div style={styles.detailItem}>
-                      <strong>Team Size:</strong> {selectedItem.teamSize} members
-                    </div>
-                    <div style={styles.detailItem}>
-                      <strong>Duration:</strong> {selectedItem.duration}
-                    </div>
-                  </div>
-                  <p style={styles.modalDescription}>{selectedItem.description}</p>
-                  <div style={styles.techStack}>
-                    {selectedItem.tech.map((tech, i) => (
-                      <span key={i} style={styles.techBadge}>{tech}</span>
-                    ))}
-                  </div>
-                </div>
+                </>
               )}
             </div>
           </div>
@@ -908,6 +985,32 @@ const styles = {
   },
   hackCard: {
     borderLeft: '4px solid #743636',
+    padding: 0,
+  },
+  hackImageWrapper: {
+    position: 'relative',
+    width: '100%',
+    height: '190px',
+    overflow: 'hidden',
+  },
+  hackImage: {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    display: 'block',
+  },
+  hackDateBadge: {
+    position: 'absolute',
+    bottom: '12px',
+    right: '12px',
+    background: 'rgba(86, 44, 44, 0.85)',
+    color: '#F7E7CE',
+    padding: '6px 12px',
+    borderRadius: '12px',
+    fontSize: '12px',
+    fontWeight: '600',
+  },
+  hackCardBody: {
     padding: '24px',
   },
   hackHeader: {
@@ -1125,6 +1228,38 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: '20px',
+  },
+  hackModalHeader: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    gap: '16px',
+    flexWrap: 'wrap',
+    marginBottom: '20px',
+  },
+  hackModalTitleGroup: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '16px',
+  },
+  hackModalProject: {
+    margin: 0,
+    fontSize: '16px',
+    color: '#743636',
+    fontWeight: '600',
+  },
+  hackModalMeta: {
+    display: 'flex',
+    gap: '10px',
+    alignItems: 'center',
+  },
+  hackDurationTag: {
+    fontSize: '12px',
+    color: '#743636',
+    fontWeight: '600',
+    background: '#F7E7CE',
+    padding: '4px 10px',
+    borderRadius: '20px',
   },
   modalTitle: {
     fontSize: '32px',
