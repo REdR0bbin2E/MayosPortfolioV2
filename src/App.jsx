@@ -10,6 +10,7 @@ import Navi from './assets/Navi.png';
 import PaWebsite from './assets/paWebsite.png';
 import PersonalWebsite from './assets/PersonalWeb.png';
 import Placeholder from './assets/Placeholder1.jpg';
+import Navi2 from './assets/Navi2.png';
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState('projects');
   const [selectedItem, setSelectedItem] = useState(null);
@@ -73,7 +74,7 @@ export default function Portfolio() {
     ],
     projects: [
       {
-        title: "Interactive Elimination Game",
+        title: "Interactive Elimination Game (For RA's)",
         tech: ["React", "Firebase", "Cloud Storage"],
         dates: "Oct. 2025",
         // Concise resume bullets
@@ -100,13 +101,13 @@ export default function Portfolio() {
         ],
         blurb: "Fullstack platform for indie game devs.",
         image: CrewCreate,
-        status: "WIP",
-        liveLink: "#",
+        status: "static",
+        liveLink: null,
         repoLink: "https://github.com/REdR0bbin2E/UpdateWebsite",
         test: true
       },
       {
-        title: "Nocturnal Dream Logger (Nocturne)",
+        title: "Nocturnal Dream Logger (ACM Projects Spring 25')",
         tech: ["React Native", "Expo", "TypeScript", "OpenAI APIs"],
         dates: "Jan. 2025 - May 2025",
         description: [
@@ -121,7 +122,7 @@ export default function Portfolio() {
         test: true
       },
       {
-        title: "Personal Portfolio Site",
+        title: "Personal Portfolio Site :D",
         blurb: "A responsive, modern web portfolio.",
         description: "This very portfolio! A fully responsive single-page application built with React, styled using inline CSS for rapid prototyping, and focused on performance and clean UI/UX design. Demonstrates proficiency in React state management, component architecture, and responsive design principles.",
         tech: ["React", "HTML/CSS", "JavaScript"],
@@ -129,6 +130,17 @@ export default function Portfolio() {
         status: "deployed",
         liveLink: null,
         repoLink: "https://github.com/janedoe/portfolio-site",
+        test: false
+      },
+      {
+        title: "Navi2 BJ (Before Jarvis)",
+        blurb: "A Jarvis like AI powered buddy application.",
+        description: "This was initially built off my HackUTD25 project but with added styling and features! The idea is that the user has a dashboard and an AI buddy that allows them to keep tiny task all in one place. Navi chat is also now able to generate PDF's/Documents using Gemini's API, parsing the user's resume and hashing the data into resume.json to be used to fill out job applications, and the ability to send emails to email addresses the user adds in settings. I plan on using eye tracking + computer vision to have the user link hand gesture to different actions on the keyboard.",
+        image: Navi2,
+        status: "WIP",
+        tech: ["Electron (older vers.)", "React", "HTML/CSS", "Nodemiller API", "Spotify API", "Zoom API", "Auth0", "OpenWetherMap API", "Gemini API", "GPT-Whisper", "GPT-4o"],
+        liveLink: null,
+        repoLink: null,
         test: false
       },
       {
@@ -156,6 +168,17 @@ export default function Portfolio() {
       {
         title: "Manga To Video (MTV)",
         blurb: "Manga to video converter.",
+        description: "WIP.",
+        tech: ["TBD", "TBD", "TBD"],
+        image: Placeholder,
+        status: "WIP",
+        liveLink: null,
+        repoLink: null,
+        test: false
+      },
+      {
+        title: "Spotify Music Language Converter",
+        blurb: ".",
         description: "WIP.",
         tech: ["TBD", "TBD", "TBD"],
         image: Placeholder,
