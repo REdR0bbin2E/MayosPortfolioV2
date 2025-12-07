@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Youtube, Github, Linkedin, Mail, Instagram, ExternalLink, Award, Code, User, Trophy, X, ExternalLink as LinkIcon, Lock } from 'lucide-react'; // Added Instagram and Lock icons
-import { animate, AnimatePresence, motion, scale } from 'framer-motion'
+import React, { useState } from 'react';
+import { Youtube, Github, Linkedin, Mail, Instagram, ExternalLink, Award, Code, User, Trophy, X, ExternalLink as LinkIcon, Heart, Zap, Star } from 'lucide-react';
+import { animate, AnimatePresence, motion } from 'framer-motion';
+
+// --- Assets ---
 import Mayo from './assets/Mayo.png';
 import CrewCreate from './assets/crewCreate.png';
 import Nocturne from './assets/Nocturne.png';
@@ -11,12 +13,27 @@ import PaWebsite from './assets/paWebsite.png';
 import PersonalWebsite from './assets/PersonalWeb.png';
 import Placeholder from './assets/Placeholder1.jpg';
 import Navi2 from './assets/Navi2.png';
+import MayosResume from './assets/Mayowa_Akinyede_Resume.pdf';
+
+// --- PIXEL DECORATION COMPONENT ---
+const PixelIcon = ({ icon: Icon, color }) => (
+  <div style={{
+    display: 'inline-flex',
+    padding: '8px',
+    background: '#000',
+    border: `2px solid ${color}`,
+    boxShadow: `4px 4px 0px 0px ${color}`,
+    marginRight: '15px',
+    verticalAlign: 'middle'
+  }}>
+    <Icon size={24} color={color} />
+  </div>
+);
+
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState('projects');
   const [selectedItem, setSelectedItem] = useState(null);
   const [modalType, setModalType] = useState(null);
-  const [multipleImages, setMultipleImages] = useState(true);
-  const [selectedItemImageIndex, setSelectedItemImageIndex] = useState(0)
 
   const openModal = (item, type) => {
     setSelectedItem(item);
@@ -28,27 +45,26 @@ export default function Portfolio() {
     setModalType(null);
   };
 
-  // --- START: UPDATED DATA WITH NEW PROJECT AND INSTAGRAM ---
-
-  const profileName = "Mayowa Akinyede"; // Replace with actual name
-  const profileTitle = "Hello World! This is my digital portfolio please feel free to reach out with feedback.";
-  const profileSubtitle = "Fullstack, Quantum Computing, and Game Development Enthusiast";
+  // --- FULL ORIGINAL DATA ---
+  const profileName = "Mayowa Akinyede";
+  const profileTitle = "PLAYER 1: READY";
+  const profileSubtitle = "Fullstack | Quantum Computing | Game Dev";
 
   const resumeData = {
     education: {
       university: "University of Texas at Dallas",
-      degree: "Bachelor of Science in Computer Science",
+      degree: "B.S. in Computer Science; Minor in Business Intelligence & Analytics",
       gpa: "3.7/4.0",
-      dates: "Aug. 2024 - May 2027", // Updated to fit typical 4-year degree timeline for 2027 grad
+      dates: "Aug. 2024 - May 2027",
       location: "Richardson, TX",
       coursework: "Linear Algebra, Computer Architecture, Discrete Math"
     },
     skills: {
-      languages: "Java, C++, Swift, Lua, JavaScript, TypeScript, HTML/CSS",
-      frameworks: "React, React Native, Node.js, Expo, Firebase, Q# (Microsoft Quantum Workshop)",
-      libraries: "Firebase SDK, Expo Router, Framer Motion, Reanimated, Axios, Qiskit",
+      languages: "Java, C++, Swift, Lua, JavaScript, TypeScript, HTML/CSS, SQL",
+      frameworks: "React, React Native, Electron, Node.js, Expo, Firebase",
+      libraries: "Firebase SDK, Expo Router, Framer Motion, Reanimated, Axios",
       devTools: "Git, Figma, VS Code, Expo CLI",
-      concepts: "Data Structures, Algorithms, OOP, UI/UX, Fullstack Development, Quantum Computing Basics"
+      concepts: "Data Structures, Algorithms, OOP, API Integration, UI/UX, Fullstack Dev"
     },
     experience: [
       {
@@ -57,46 +73,44 @@ export default function Portfolio() {
         location: "Allen, TX",
         dates: "Dec. 2024 - May 2025",
         description: [
-          "Diagnosed, repaired, and optimized 50+ customer devices per week including laptops, desktops, and mobile systems, performing hardware replacements, virus removals, and OS reinstalls that restored functionality and extended device lifespan.",
-          "Collaborated with a cross-functional 10-agent team, contributing to knowledge sharing, process improvements, and consistently maintaining a 99% satisfaction rating at the No. 1 ranked Best Buy in North Texas."
+          "Diagnosed and optimized **50+ customer devices per week** including laptops and mobile systems, performing hardware replacements and OS reinstalls that extended device lifespan and enhanced service delivery.",
+          "Collaborated with a cross-functional **10-agent team**, contributing to knowledge sharing and consistently maintaining a **95% satisfaction rating** at the No. 1 ranked Best Buy in North Texas."
         ]
       },
       {
-        title: "Independent Study & Mentorship (ISM)",
-        company: "Mentee: Quantum Computing",
-        location: "Frisco, TX",
-        dates: "Aug. 2023 - May 2024",
+        title: "Frontend Software Engineer",
+        company: "ACM Projects",
+        location: "RIchardson, TX",
+        dates: "Jan. 2025 - May 2025",
         description: [
-          "Conducted independent research on Quantum Error Mitigation, applying noise-reduction techniques on small quantum circuits and presenting findings at a professional symposium to peers and faculty experts.",
-          "Strengthened professional research and communication skills by collaborating with an industry mentor through weekly meetings, reports, and technical presentations, gaining valuable experience in collaborative project development."
-        ]
-      }
+          "Led frontend development for a 12-week cross-functional project, designing scalable architecture, reusable UI components, and intuitive navigation to enhance user experience and maintainability.",
+          "Engineered integration of **OpenAI GPT + DALL·E 3 APIs** for automated dream analysis, recurring theme detection, and AI-powered visual storytelling of user-submitted logs."
+        ],
+      },
     ],
     projects: [
       {
-        title: "Interactive Elimination Game (For RA's)",
-        tech: ["React", "Firebase", "Cloud Storage"],
-        dates: "Oct. 2025",
-        // Concise resume bullets
+        title: "Navi (AI Dashboard)",
+        tech: ["Electron", "Node.js", "OpenAI", "ElevenLabs", "Gemini API"],
+        dates: "Oct. 2025 - Present",
         description: [
-          "(Live Link Isnt Set because of Privacy reasons reach out if ur curious about it!) Engineered a **real-time, browser-based voting and elimination game** utilizing **React** for the frontend and **Firebase Firestore** for instant data synchronization across all clients.",
-          "Developed a password-protected **Host Console (Admin)** to manage the game flow, including setting question rounds, adjusting player points, and managing elimination.",
-          "Implemented secure player registration with **Firebase Storage** for image uploads, ensuring a robust, full-stack application for live, interactive gameplay."
+          "Engineered an **AI-powered desktop dashboard** using **Electron**, consolidating productivity tools (Spotify, Zoom) into a unified interface with system stat monitoring and voice-controlled app management via **PowerShell**.",
+          "Integrated **GPT-4o (STT)** and **ElevenLabs (TTS)** for bidirectional voice interaction, alongside **NodeMailer** for email automation, **Spotify API** for media control, and **Gemini API** for document generation.",
+          "Developed a companion **Chrome Extension** that parses resumes into JSON for autofilling applications and utilizes on-page text extraction for context-aware AI Q&A."
         ],
-        // Expanded portfolio content
-        blurb: "Real-time voting and elimination game.",
-        image: PaWebsite,
-        status: "deployed",
+        blurb: "AI-powered desktop assistant & dashboard.",
+        image: Navi2, // Ensure you have this import or switch to Navi
+        status: "WIP",
         liveLink: null,
         repoLink: null,
-        test: false
+        test: true // Set to true so it appears in the Resume/Projects section
       },
       {
-        title: "Create Collaborate (Crew Create)",
+        title: "Crew Create",
         tech: ["React", "Vite", "Firebase"],
         dates: "Jun. 2025 - Present",
         description: [
-          "Developing a **fullstack collaboration platform** for indie game developers to share projects, communicate in real-time, and streamline workflow, featuring responsive UI and optimized state management.",
+          "Developing a **fullstack collaboration platform** for indie game developers to share projects, communicate in real-time, and streamline workflows, featuring responsive UI and optimized state management.",
           "Implemented **Firebase authentication, real-time database, and monetization tools**, supporting secure user access, persistent project data, and integrated payment tracking for sustainable growth."
         ],
         blurb: "Fullstack platform for indie game devs.",
@@ -107,40 +121,45 @@ export default function Portfolio() {
         test: true
       },
       {
-        title: "Nocturnal Dream Logger (ACM Projects Spring 25')",
-        tech: ["React Native", "Expo", "TypeScript", "OpenAI APIs"],
+        title: "Nocturne Dream Logger",
+        tech: ["React Native", "Expo", "TypeScript", "OpenAI"],
         dates: "Jan. 2025 - May 2025",
         description: [
-          "Led frontend development for a 12-week cross-functional project of 4 engineers, designing scalable architecture, reusable UI components, and intuitive navigation to enhance user experience and maintainability.",
-          "Engineered integration of **OpenAI GPT + DALLE-3 APIs** for automated dream analysis, recurring theme detection, and AI-powered visual storytelling of user-submitted logs."
+          "Nocturne is an AI powered dream logger React Native based application developed during UTD's ACM Projects Spring '25 that allowed the user to bring their dreams to life. ",
+          "Nocturne was built using MongoDB for our backend alongside OpenAI's API and DALLE-3 for image generations."
         ],
         blurb: "AI-powered dream analysis mobile app.",
         image: Nocturne,
-        status: "static", // Updated to new static tag
-        liveLink: null, // Set to null/empty to hide link button
-        repoLink: "https://github.com/REdR0bbin2E/Nocturne", // Example private repo link
+        status: "static",
+        liveLink: null,
+        repoLink: "https://github.com/REdR0bbin2E/Nocturne",
         test: true
       },
       {
-        title: "Personal Portfolio Site :D",
+        title: "Interactive Elimination Game",
+        tech: ["React", "Firebase", "Cloud Storage"],
+        dates: "Oct. 2025",
+        description: [
+          "Engineered a **real-time, browser-based voting and elimination game** utilizing **React** for the frontend and **Firebase Firestore** for instant data synchronization across all clients.",
+          "Developed a password-protected **Host Console (Admin)** to manage the game flow, including setting question rounds, adjusting player points, and managing elimination.",
+          "Implemented secure player registration with **Firebase Storage** for image uploads, ensuring a robust, full-stack application for live, interactive gameplay."
+        ],
+        blurb: "Real-time voting and elimination game.",
+        image: PaWebsite,
+        status: "deployed",
+        liveLink: null,
+        repoLink: null,
+        test: false
+      },
+      {
+        title: "Personal Portfolio Site",
         blurb: "A responsive, modern web portfolio.",
-        description: "This very portfolio! A fully responsive single-page application built with React, styled using inline CSS for rapid prototyping, and focused on performance and clean UI/UX design. Demonstrates proficiency in React state management, component architecture, and responsive design principles.",
+        description: "This very portfolio! A fully responsive single-page application built with React, styled using inline CSS for rapid prototyping, and focused on performance and clean UI/UX design.",
         tech: ["React", "HTML/CSS", "JavaScript"],
         image: PersonalWebsite,
         status: "deployed",
         liveLink: null,
         repoLink: "https://github.com/janedoe/portfolio-site",
-        test: false
-      },
-      {
-        title: "Navi2 BJ (Before Jarvis)",
-        blurb: "A Jarvis like AI powered buddy application.",
-        description: "This was initially built off my HackUTD25 project but with added styling and features! The idea is that the user has a dashboard and an AI buddy that allows them to keep tiny task all in one place. Navi chat is also now able to generate PDF's/Documents using Gemini's API, parsing the user's resume and hashing the data into resume.json to be used to fill out job applications, and the ability to send emails to email addresses the user adds in settings. I plan on using eye tracking + computer vision to have the user link hand gesture to different actions on the keyboard.",
-        image: Navi2,
-        status: "WIP",
-        tech: ["Electron (older vers.)", "React", "HTML/CSS", "Nodemiller API", "Spotify API", "Zoom API", "Auth0", "OpenWetherMap API", "Gemini API", "GPT-Whisper", "GPT-4o"],
-        liveLink: null,
-        repoLink: null,
         test: false
       },
       {
@@ -164,29 +183,7 @@ export default function Portfolio() {
         liveLink: null,
         repoLink: null,
         test: false
-      },
-      {
-        title: "Manga To Video (MTV)",
-        blurb: "Manga to video converter.",
-        description: "WIP.",
-        tech: ["TBD", "TBD", "TBD"],
-        image: Placeholder,
-        status: "WIP",
-        liveLink: null,
-        repoLink: null,
-        test: false
-      },
-      {
-        title: "Spotify Music Language Converter",
-        blurb: ".",
-        description: "WIP.",
-        tech: ["TBD", "TBD", "TBD"],
-        image: Placeholder,
-        status: "WIP",
-        liveLink: null,
-        repoLink: null,
-        test: false
-      },
+      }
     ],
     leadership: [
       {
@@ -194,7 +191,7 @@ export default function Portfolio() {
         organization: "ACM Community",
         dates: "2024 - Present",
         description: [
-          "Organized and facilitated **hands-on workshops/socials** with 50+ attendees, covering web/mobile development topics such as React, Expo, and deployment pipelines to strengthen technical skills and peer collaboration."
+          "Organized **hands-on workshops** and socials with 50+ attendees, covering web/mobile development topics (React, Expo, CI/CD) to strengthen technical skills and peer collaboration."
         ]
       },
       {
@@ -202,7 +199,7 @@ export default function Portfolio() {
         organization: "FinTech Workshop",
         dates: "2024 - Present",
         description: [
-          "Coordinated technical sessions on **blockchain, finance, and software engineering**, introducing students to emerging technologies and practical career applications through engaging events and socials."
+          "Coordinated technical sessions on **blockchain, finance, and software engineering**, introducing students to emerging technologies and practical career applications through engaging events."
         ]
       },
       {
@@ -210,22 +207,22 @@ export default function Portfolio() {
         organization: "Residence Hall Housing (RHH)",
         dates: "2024 - Present",
         description: [
-          "Hosted monthly community events and provided peer mentorship, fostering residential engagement, academic support, and a positive student living environment for each and every one of my residents."
+          "Hosted monthly community events and provided peer mentorship, fostering residential engagement, academic support, and a positive student living environment for all residents."
         ]
       }
     ],
     hobbies: [
       {
         title: "Skating",
-        description: "I’ve been skating for about three months now, and honestly, it’s been a blast. I can land the basics—ollies, kickflips, and shove-its (on good days)! Skating’s become my go-to way to clear my head after long study sessions. Nothing beats cruising around and just feeling free for a while."
+        description: "I’ve been skating for about three months now, and honestly, it’s been a blast. I can land the basics—ollies, kickflips, and shove-its (on good days)! Skating’s become my go-to way to clear my head after long study sessions."
       },
       {
         title: "Music",
-        description: "Music’s always been part of who I am. I was in band all through middle and high school—marching band included—and played both the clarinet and alto sax. Lately, I’ve been trying to dust off those skills again. I’m also a huge concert person; I’ve seen Grent Perez, Vansire, and Ginger Root live, and I swear there’s nothing like that post-concert energy."
+        description: "Music’s always been part of who I am. I was in band all through middle and high school—marching band included—and played both the clarinet and alto sax. Lately, I’ve been trying to dust off those skills again. I’m also a huge concert person."
       },
       {
         title: "Soccer & Volleyball",
-        description: "I grew up loving sports, especially soccer and volleyball. They’re a fun way to stay active and competitive, but mostly I just love the team vibe—lots of laughs, energy, and the occasional overly serious match that feels like the World Cup."
+        description: "I grew up loving sports, especially soccer and volleyball. They’re a fun way to stay active and competitive, but mostly I just love the team vibe."
       },
       {
         title: "Anime & Manga",
@@ -233,15 +230,10 @@ export default function Portfolio() {
       },
       {
         title: "Game Development",
-        description: "I started out making games in Roblox Studio back in the day (shoutout to my younger self experimenting with Lua scripts). Recently, I’ve been diving into indie game development—something about creating interactive worlds just clicks with me. Nintendo was a huge inspiration growing up; my old DS is probably what first made me want to build worlds of my own."
+        description: "I started out making games in Roblox Studio back in the day (shoutout to my younger self experimenting with Lua scripts). Recently, I’ve been diving into indie game development—something about creating interactive worlds just clicks with me."
       }
-
-
     ]
   };
-
-  // The 'projects' array in the component is used for the Projects tab.
-  // We'll merge the resume projects with the dummy projects for a more complete portfolio showcase.
 
   const hackathons = [
     {
@@ -255,7 +247,7 @@ export default function Portfolio() {
       teamSize: 3,
       duration: "24 hours",
       repoLink: "https://github.com/REdR0bbin2E/voice",
-      devpostLink: "https://devpost.com/software/echos-vprx96?_gl=1*acfrb9*_gcl_au*MTc1Mjg5MDgxOS4xNzU4ODI5Mzgx*_ga*NDY3OTYyMDQzLjE3NTg4MjkzODI.*_ga_0YHJK3Y10M*czE3NjMwMTczODYkbzE4JGcxJHQxNzYzMDE3NTE1JGo3JGwwJGgw",
+      devpostLink: "https://devpost.com/software/echos-vprx96",
       image: Echoes
     },
     {
@@ -283,7 +275,7 @@ export default function Portfolio() {
       teamSize: 4,
       duration: "24 hours",
       repoLink: "https://github.com/cheeky4life/navi",
-      devpostLink: "https://devpost.com/software/navi-jp2be3?_gl=1*15bodkh*_gcl_au*MTc1Mjg5MDgxOS4xNzU4ODI5Mzgx*_ga*NDY3OTYyMDQzLjE3NTg4MjkzODI.*_ga_0YHJK3Y10M*czE3NjMwMTczODYkbzE4JGcxJHQxNzYzMDE3NDcxJGo1MSRsMCRoMA..",
+      devpostLink: "https://devpost.com/software/navi-jp2be3",
       image: Navi
     }
   ];
@@ -292,118 +284,132 @@ export default function Portfolio() {
     { name: "GitHub", icon: Github, link: "https://github.com/REdR0bbin2E", username: "@REdR0bbin2E" },
     { name: "LinkedIn", icon: Linkedin, link: "https://www.linkedin.com/in/mayowa-akinyede-cs/", username: "Mayowa Akinyede" },
     { name: "Email", icon: Mail, link: null, username: "Mayo.akin2@gmail.com" },
-    { name: "Instagram", icon: Instagram, link: "https://www.instagram.com/akacompsci/", username: "@akacompsci" }, // New Instagram entry
+    { name: "Instagram", icon: Instagram, link: "https://www.instagram.com/akacompsci/", username: "@akacompsci" },
     { name: "YouTube", icon: Youtube, link: null, username: "Coming Soon.." }
   ];
 
-  // --- END: UPDATED DATA WITH NEW PROJECT AND INSTAGRAM ---
-
-  // Helper function to render resume list items (used for Experience, Projects, Leadership)
-  const renderResumeList = (items) => (
-    <ul style={styles.resumeList}>
-      {items.map((item, i) => (
-        <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
-      ))}
-    </ul>
-  );
-
-  // Helper function to determine project status badge style and text
-  const getStatusBadge = (status) => {
-    if (status === 'deployed') {
-      return { style: styles.statusDeployed2, text: '✓ Deployed' };
-    } else if (status === 'WIP') {
-      return { style: styles.statusWIP2, text: '🚧 WIP' };
-    } else if (status === 'static') {
-      return { style: styles.statusStatic2, text: '🔒 Static/Private' };
-    }
-    return { style: styles.statusWIP2, text: '🚧 WIP' }; // Default fallback
+  // Helper to process text formatting (converting **text** to bold)
+  const formatText = (text) => {
+    if (!text) return "";
+    return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
   };
 
+  const getStatusBadge = (status) => {
+    const baseStyle = {
+      padding: '4px 8px',
+      fontSize: '12px',
+      fontFamily: '"Press Start 2P", cursive',
+      border: '2px solid #000',
+      boxShadow: '2px 2px 0px 0px #000',
+      color: '#000',
+      textTransform: 'uppercase',
+      display: 'inline-block'
+    };
+
+    if (status === 'deployed') return { style: { ...baseStyle, background: '#00ff00' }, text: 'ONLINE' };
+    if (status === 'WIP') return { style: { ...baseStyle, background: '#ffff00' }, text: 'LOADING' };
+    if (status === 'static') return { style: { ...baseStyle, background: '#a8a8a8' }, text: 'LOCKED' };
+    return { style: baseStyle, text: 'UNKNOWN' };
+  };
 
   return (
     <div style={styles.portfolio}>
+      {/* GLOBAL FONTS & CRT EFFECT */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+        
+        body { margin: 0; background-color: #1a1a2e; }
+        strong { color: #00e5ff; font-weight: normal; } /* Highlight bold words in cyan */
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 12px; }
+        ::-webkit-scrollbar-track { background: #1a1a2e; border-left: 2px solid #333; }
+        ::-webkit-scrollbar-thumb { background: #ff0055; border: 2px solid #000; }
+        ::-webkit-scrollbar-thumb:hover { background: #ff4d88; }
+
+        /* CRT Scanline Effect */
+        .scanlines {
+          position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+          background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+          background-size: 100% 2px, 3px 100%;
+          pointer-events: none; z-index: 9999;
+        }
+      `}</style>
+
+      <div className="scanlines"></div>
+
       <header style={styles.hero}>
         <div style={styles.heroContent}>
-          <div style={styles.profileCircle}>
-            <img src={Mayo} size={64} style={{ maxWidth: "125px", borderRadius: 360 }} />
+          <div style={styles.avatarContainer}>
+            <img src={Mayo} style={styles.pixelAvatar} alt="Profile" />
+            <div style={styles.onlineStatus}></div>
           </div>
           <h1 style={styles.name}>{profileName}</h1>
-          <p style={styles.title}>{profileTitle}</p>
+          <div style={styles.levelBadge}>LEVEL 19 <span style={{ color: '#ff0055' }}>DEV</span></div>
           <p style={styles.subtitle}>{profileSubtitle}</p>
+          <div style={styles.statsRow}>
+            <span style={styles.statItem}><Heart size={16} fill="red" color="red" /> HP 100/100</span>
+            <span style={styles.statItem}><Zap size={16} fill="yellow" color="yellow" /> MP 100/100</span>
+          </div>
         </div>
-        <div style={styles.heroDecoration}></div>
       </header>
 
+      {/* NES CONTROLLER STYLE NAV */}
       <nav style={styles.navigation}>
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-
-          style={{ ...styles.navButton, ...(activeSection === 'projects' ? styles.navButtonActive : {}) }}
-          onClick={() => setActiveSection('projects')}
-        >
-          <Code size={20} />
-          <span>Projects</span>
-        </motion.button>
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-
-          style={{ ...styles.navButton, ...(activeSection === 'hackathons' ? styles.navButtonActive : {}) }}
-          onClick={() => setActiveSection('hackathons')}
-        >
-          <Trophy size={20} />
-          <span>Hackathons</span>
-        </motion.button>
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-
-          style={{ ...styles.navButton, ...(activeSection === 'resume' ? styles.navButtonActive : {}) }}
-          onClick={() => setActiveSection('resume')}
-        >
-          <User size={20} />
-          <span>Resume</span>
-        </motion.button>
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-
-          style={{ ...styles.navButton, ...(activeSection === 'socials' ? styles.navButtonActive : {}) }}
-          onClick={() => setActiveSection('socials')}
-        >
-          <Award size={20} />
-          <span>Connect</span>
-        </motion.button>
+        {['projects', 'hackathons', 'resume', 'socials'].map((section) => (
+          <motion.button
+            key={section}
+            whileHover={{ scale: 1.05, y: -4 }}
+            whileTap={{ scale: 0.95, y: 0 }}
+            style={{
+              ...styles.navButton,
+              ...(activeSection === section ? styles.navButtonActive : {})
+            }}
+            onClick={() => setActiveSection(section)}
+          >
+            {section === 'projects' && <Code size={20} />}
+            {section === 'hackathons' && <Trophy size={20} />}
+            {section === 'resume' && <User size={20} />}
+            {section === 'socials' && <Award size={20} />}
+            <span style={{ marginTop: '8px' }}>{section.toUpperCase()}</span>
+          </motion.button>
+        ))}
       </nav>
 
       <main style={styles.main}>
         {activeSection === 'projects' && (
           <div style={styles.section}>
-            <h2 style={styles.sectionTitle}>Personal Projects</h2>
+            <h2 style={styles.sectionTitle}>
+              <PixelIcon icon={Code} color="#00e5ff" />
+              SELECT MISSION
+            </h2>
             <div style={styles.grid}>
               {resumeData.projects.map((project, idx) => {
-                const { style: statusStyle, text: statusText } = getStatusBadge(project.status);
+                const badge = getStatusBadge(project.status);
                 return (
                   <motion.div
                     key={idx}
-                    initial={{ scale: 1 }}
-                    whileHover={{ scale: 1.1, border: "2px #dbafafff" }}
-                    style={{ ...styles.card, animationDelay: `${idx * 0.1}s` }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.1 }}
+                    whileHover={{ scale: 1.02 }}
+                    style={styles.card}
                     onClick={() => openModal(project, 'project')}
                   >
-                    <div style={styles.projectImage}>
-                      {/* Fallback image if a project doesn't have one */}
-                      <img src={project.image || "https://images.unsplash.com/photo-1542831371-29b0f74f9449?w=400&h=250&fit=crop"} alt={project.title} style={styles.image} />
-                      <span style={statusStyle}>
-                        {statusText}
-                      </span>
+                    <div style={styles.cardImageWrapper}>
+                      <img src={project.image || Placeholder} alt={project.title} style={styles.cardImage} />
+                      <div style={{ position: 'absolute', top: 10, right: 10 }}>
+                        <span style={badge.style}>{badge.text}</span>
+                      </div>
                     </div>
                     <div style={styles.cardContent}>
-                      <div style={styles.cardHeader}>
-                        <h3 style={styles.cardTitle}>{project.title}</h3>
-                      </div>
-                      <p style={styles.cardDescription}>{project.blurb}</p>
+                      <h3 style={styles.cardTitle}>{project.title}</h3>
+                      <p style={styles.cardBlurb}>{project.blurb}</p>
                       <div style={styles.techStack}>
-                        {project.tech.map((tech, i) => (
-                          <span key={i} style={styles.techBadge}>{tech}</span>
+                        {project.tech.slice(0, 3).map((t, i) => (
+                          <span key={i} style={styles.techBadge}>{t}</span>
                         ))}
+                        {project.tech.length > 3 && <span style={styles.techBadge}>+{project.tech.length - 3}</span>}
                       </div>
                     </div>
                   </motion.div>
@@ -411,963 +417,654 @@ export default function Portfolio() {
               })}
             </div>
           </div>
-        )
-        }
+        )}
 
-        {
-          activeSection === 'hackathons' && (
-            <div style={styles.section}>
-              <h2 style={styles.sectionTitle}>Hackathon Achievements</h2>
-              <div style={styles.grid}>
-                {hackathons.map((hack, idx) => (
-                  <div
-                    key={idx}
-                    style={{ ...styles.card, ...styles.hackCard, animationDelay: `${idx * 0.1}s` }}
-                    onClick={() => openModal(hack, 'hackathon')}
-                  >
-                    <div style={styles.hackImageWrapper}>
-                      <img
-                        src={hack.image || Placeholder}
-                        alt={`${hack.project} showcase`}
-                        style={styles.hackImage}
-                      />
-                      <span style={styles.hackDateBadge}>{hack.date}</span>
+        {activeSection === 'hackathons' && (
+          <div style={styles.section}>
+            <h2 style={styles.sectionTitle}>
+              <PixelIcon icon={Trophy} color="#ffd700" />
+              ACHIEVEMENTS
+            </h2>
+            <div style={styles.grid}>
+              {hackathons.map((hack, idx) => (
+                <motion.div
+                  key={idx}
+                  whileHover={{ scale: 1.02 }}
+                  style={{ ...styles.card, border: '4px solid #ffd700', boxShadow: '8px 8px 0px 0px #b8860b' }}
+                  onClick={() => openModal(hack, 'hackathon')}
+                >
+                  <div style={styles.cardImageWrapper}>
+                    <img src={hack.image || Placeholder} style={styles.cardImage} alt="hack" />
+                  </div>
+                  <div style={styles.cardContent}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+                      <span style={{ fontFamily: 'VT323', fontSize: '1.2rem', color: '#fff', background: '#333', padding: '2px 6px' }}>{hack.date}</span>
+                      <span style={{ fontFamily: 'VT323', fontSize: '1.2rem', color: '#ffd700' }}>{hack.duration}</span>
                     </div>
-                    <div style={styles.hackCardBody}>
-                      <div style={styles.hackHeader}>
-                        <Trophy size={24} color="#743636" />
-                        <span style={styles.hackDate}>{hack.duration}</span>
+                    <h3 style={{ ...styles.cardTitle, color: '#ffd700', fontSize: '1.1rem' }}>{hack.title}</h3>
+                    <p style={{ color: '#fff', fontFamily: 'VT323', fontSize: '1.3rem', marginBottom: '8px' }}>Project: {hack.project}</p>
+                    <div style={styles.achievementBadge}>
+                      <Star size={12} fill="#000" /> {hack.achievement}
+                    </div>
+                    <p style={styles.cardBlurb}>{hack.blurb}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {activeSection === 'resume' && (
+          <div style={styles.section}>
+            <h2 style={styles.sectionTitle}>
+              <PixelIcon icon={User} color="#ff0055" />
+              PLAYER STATS
+            </h2>
+            <div style={styles.resumeContainer}>
+
+              {/* EDUCATION - MAIN QUEST */}
+              <div style={styles.rpgBox}>
+                <h3 style={styles.rpgHeader}>MAIN QUEST (EDUCATION)</h3>
+                <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '20px' }}>
+                  <div>
+                    <h4 style={styles.rpgSubHeader}>{resumeData.education.degree}</h4>
+                    <p style={styles.rpgText}>{resumeData.education.university}</p>
+                    <p style={{ ...styles.rpgText, color: '#00e5ff', marginTop: '5px' }}>
+                      Coursework: {resumeData.education.coursework}
+                    </p>
+                  </div>
+                  <div style={{ textAlign: 'right', minWidth: '150px' }}>
+                    <div style={styles.xpBadge}>GPA: {resumeData.education.gpa}</div>
+                    <p style={styles.rpgText}>{resumeData.education.dates}</p>
+                    <p style={styles.rpgText}>{resumeData.education.location}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* SKILLS - INVENTORY */}
+              <div style={styles.rpgBox}>
+                <h3 style={styles.rpgHeader}>INVENTORY (SKILLS)</h3>
+                <div style={styles.skillGrid}>
+                  {Object.entries(resumeData.skills).map(([key, value]) => (
+                    <div key={key} style={styles.skillCol}>
+                      <h4 style={styles.skillTitle}>{key.toUpperCase()}</h4>
+                      <div style={styles.skillBarContainer}>{value}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* EXPERIENCE - SIDE QUESTS */}
+              <div style={styles.rpgBox}>
+                <h3 style={styles.rpgHeader}>SIDE QUESTS (EXPERIENCE)</h3>
+                {resumeData.experience.map((job, i) => (
+                  <div key={i} style={{ marginBottom: '30px', borderBottom: i !== resumeData.experience.length - 1 ? '2px dashed #333' : 'none', paddingBottom: '20px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap' }}>
+                      <h4 style={styles.rpgSubHeader}>{job.title}</h4>
+                      <div style={{ textAlign: 'right' }}>
+                        <span style={{ fontFamily: 'VT323', color: '#ff0055', fontSize: '1.2rem', display: 'block' }}>{job.dates}</span>
+                        <span style={{ fontFamily: 'VT323', color: '#aaa', fontSize: '1rem' }}>{job.location}</span>
                       </div>
-                      <h3 style={styles.cardTitle}>{hack.title}</h3>
-                      <p style={styles.hackProject}>{hack.project}</p>
-                      <p style={styles.cardDescription}>{hack.blurb}</p>
-                      <div style={styles.achievement}>{hack.achievement}</div>
                     </div>
+                    <p style={{ fontFamily: 'VT323', color: '#00e5ff', fontSize: '1.2rem', marginBottom: '10px' }}>{job.company}</p>
+                    <ul style={styles.pixelList}>
+                      {job.description.map((desc, j) => (
+                        <li key={j} dangerouslySetInnerHTML={{ __html: formatText(desc) }} />
+                      ))}
+                    </ul>
                   </div>
                 ))}
               </div>
-            </div>
-          )
-        }
 
-        {
-          activeSection === 'resume' && (
-            <div style={styles.section}>
-              <h2 style={styles.sectionTitle}>Resume</h2>
-              <div style={styles.resumeContainer}>
-                <div style={styles.resumeSection}>
-                  <h3 style={styles.resumeSectionTitle}>Education</h3>
-                  <div style={styles.resumeItem}>
-                    <h4 style={styles.resumeItemTitle}>{resumeData.education.degree}</h4>
-                    <p style={styles.resumeItemSubtitle}>{resumeData.education.university} • {resumeData.education.dates}</p>
-                    <p style={styles.resumeItemDetail}>GPA: {resumeData.education.gpa}</p>
-                    <p style={{ ...styles.resumeItemDetail, marginTop: 10 }}>Relevant Coursework: **{resumeData.education.coursework}**</p>
-
-                  </div>
-                </div>
-
-                <div style={styles.resumeSection}>
-                  <h3 style={styles.resumeSectionTitle}>Technical Skills</h3>
-                  <div style={styles.skillsGrid}>
-                    <div style={styles.skillCategory}>
-                      <h4 style={styles.skillCategoryTitle}>Languages</h4>
-                      <p style={styles.skillList}>{resumeData.skills.languages}</p>
+              {/* PROJECTS (TEST=TRUE) */}
+              <div style={styles.rpgBox}>
+                <h3 style={styles.rpgHeader}>COMPLETED RAIDS (PROJECTS)</h3>
+                {resumeData.projects.filter(p => p.test === true).map((project, idx) => (
+                  <div key={idx} style={{ marginBottom: '20px', borderBottom: '2px dashed #333', paddingBottom: '20px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                      <h4 style={styles.rpgSubHeader}>{project.title}</h4>
+                      <span style={{ fontFamily: 'VT323', color: '#ff0055' }}>{project.dates}</span>
                     </div>
-                    <div style={styles.skillCategory}>
-                      <h4 style={styles.skillCategoryTitle}>Frameworks</h4>
-                      <p style={styles.skillList}>{resumeData.skills.frameworks}</p>
-                    </div>
-                    <div style={styles.skillCategory}>
-                      <h4 style={styles.skillCategoryTitle}>Libraries</h4>
-                      <p style={styles.skillList}>{resumeData.skills.libraries}</p>
-                    </div>
-                    <div style={styles.skillCategory}>
-                      <h4 style={styles.skillCategoryTitle}>Developer Tools</h4>
-                      <p style={styles.skillList}>{resumeData.skills.devTools}</p>
-                    </div>
-                    <div style={styles.skillCategory}>
-                      <h4 style={styles.skillCategoryTitle}>Concepts</h4>
-                      <p style={styles.skillList}>{resumeData.skills.concepts}</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div style={styles.resumeSection}>
-                  <h3 style={styles.resumeSectionTitle}>Experience</h3>
-                  {resumeData.experience.map((job, idx) => (
-                    <div style={styles.resumeItem} key={idx}>
-                      <h4 style={styles.resumeItemTitle}>{job.title}</h4>
-                      <p style={styles.resumeItemSubtitle}>{job.company} • {job.dates}</p>
-                      {renderResumeList(job.description)}
-                    </div>
-                  ))}
-                </div>
-
-                <div style={styles.resumeSection}>
-                  <h3 style={styles.resumeSectionTitle}>Projects</h3>
-                  {/* Reusing existing project data to display in resume format */}
-                  {resumeData.projects.map((project, idx) => (
-
-
-                    project.test === true && (
-                      <div style={styles.resumeItem} key={idx}>
-                        <h4 style={styles.resumeItemTitle}>{project.title}</h4>
-                        <p style={styles.resumeItemSubtitle}>Technologies: {project.tech.join(', ')} • {project.dates}</p>
-                        {/* Remove bold markdown for resume list item to keep it clean */}
-                        {renderResumeList(project.description.map(desc => desc.replace(/\*\*/g, '')))}
-                      </div>
-                    )
-
-
-
-
-                  ))}
-                </div>
-
-                <div style={styles.resumeSection}>
-                  <h3 style={styles.resumeSectionTitle}>Leadership & Involvement</h3>
-                  {resumeData.leadership.map((role, idx) => (
-                    <div style={styles.resumeItem} key={idx}>
-                      <h4 style={styles.resumeItemTitle}>{role.title} ({role.organization})</h4>
-                      <p style={styles.resumeItemSubtitle}>UT Dallas • {role.dates}</p>
-                      {renderResumeList(role.description.map(desc => desc.replace(/\*\*/g, '')))}
-                    </div>
-                  ))}
-                  <h4 style={{ color: "#583434ff" }}>Other Involvement:</h4>
-                  <p style={{ color: "black" }}>UTD National Society of Black Engineers • Anime Orchestra Ensemble • InterVarsity Fellowship</p>
-
-
-
-                </div>
-
-                <div style={styles.resumeSection}>
-                  <h3 style={styles.resumeSectionTitle}>Hobbies & Interests</h3>
-                  {resumeData.hobbies.map((hobby, idx) => (
-                    <div style={{ ...styles.resumeItem, color: "#6f6464ff" }} key={idx}>
-
-                      <h4>{hobby.title}
-                        <p style={{ fontWeight: 400 }}>{hobby.description}</p>
-
-                      </h4>
-                    </div>
-                  ))}
-                </div>
-
-
-                <div style={styles.downloadButton}>
-                  <a href="#" style={styles.downloadLink}>
-                    Download Full Resume (PDF)
-                  </a>
-                </div>
-              </div>
-              <p style={styles.resumeNote}>*Project bullet points on the **'Projects'** tab are expanded with technical context and live links for an in-depth portfolio review.</p>
-            </div>
-          )
-        }
-
-        {
-          activeSection === 'socials' && (
-            <div style={styles.section}>
-              <h2 style={styles.sectionTitle}>Let's Connect</h2>
-              <div style={styles.socialsGrid}>
-                {socials.map((social, idx) => {
-                  const Icon = social.icon;
-                  return (
-                    <motion.a
-                      key={idx}
-                      href={social.link}
-                      style={{ ...styles.socialCard, animationDelay: `${idx * 0.1}s`, border: "2px solid white" }}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                    >
-                      <div style={styles.socialIcon}>
-                        <Icon size={32} />
-                      </div>
-                      <h3 style={styles.socialName}>{social.name}</h3>
-                      <p style={styles.socialUsername}>{social.username}</p>
-                    </motion.a>
-                  );
-                })}
-              </div>
-            </div>
-          )
-        }
-      </main >
-
-      {/* Modal */}
-      {
-        selectedItem && (
-          <div style={styles.modalOverlay} onClick={closeModal}>
-            <div style={styles.modal} onClick={(e) => e.stopPropagation()}>
-              <button style={styles.closeButton} onClick={closeModal}>
-                <X size={24} />
-              </button>
-
-              {modalType === 'project' && (
-                <>
-                  {/* WORKING HERE */}
-                  {multipleImages === false && (
-                    <div style={{ marginLeft: "5px", position: "absolute", marginTop: "20%", width: "95%", justifyContent: "space-between", justifyContent: "space-between", display: 'flex', alignItems: "center", padding: "10px" }}>
-                      <button style={{ borderRadius: 360 }} onClick={() => setSelectedItemImageIndex(selectedItemImageIndex + 1)}> L </button>
-                      <button style={{ borderRadius: 360 }}> R </button>
-                    </div>
-
-
-                  )}
-
-
-                  <img src={selectedItem.image} alt={selectedItem.title} style={styles.modalImage} />
-                  <div style={styles.modalContent}>
-                    <div style={styles.modalHeader}>
-                      <h2 style={styles.modalTitle}>{selectedItem.title}</h2>
-                      <span style={getStatusBadge(selectedItem.status).style}>
-                        {getStatusBadge(selectedItem.status).text}
-                      </span>
-                    </div>
-                    <p style={styles.modalDescription}>
-                      {/* Render detailed description for projects, emphasizing bolded words */}
-                      {Array.isArray(selectedItem.description)
-                        ? selectedItem.description.map((desc, i) => <p key={i} dangerouslySetInnerHTML={{ __html: desc.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} style={{ margin: '8px 0', lineHeight: '1.6' }} />)
-                        : selectedItem.description}
+                    <p style={{ ...styles.rpgText, fontSize: '1rem', color: '#aaa', marginBottom: '10px' }}>
+                      Tech: {project.tech.join(', ')}
                     </p>
-                    <div style={styles.techStack}>
-                      {selectedItem.tech.map((tech, i) => (
-                        <span key={i} style={styles.techBadge}>{tech}</span>
-                      ))}
-                    </div>
-                    <div style={styles.modalButtons}>
-                      {selectedItem.liveLink && selectedItem.liveLink !== '#' && (
-                        <a href={selectedItem.liveLink} target="_blank" rel="noopener noreferrer" style={styles.primaryButton}>
-                          <LinkIcon size={20} />
-                          <span>View Live Site</span>
-                        </a>
-                      )}
-                      {selectedItem.repoLink && (
-                        <a href={selectedItem.repoLink} target="_blank" rel="noopener noreferrer" style={selectedItem.liveLink && selectedItem.liveLink !== '#' ? styles.secondaryButton : styles.primaryButton}>
-                          <Github size={20} />
-                          <span>View Repository</span>
-                        </a>
-                      )}
-                    </div>
+                    <ul style={styles.pixelList}>
+                      {Array.isArray(project.description) ?
+                        project.description.map((d, i) => (
+                          <li key={i} dangerouslySetInnerHTML={{ __html: formatText(d) }} />
+                        ))
+                        : <li dangerouslySetInnerHTML={{ __html: formatText(project.description) }} />
+                      }
+                    </ul>
                   </div>
-                </>
-              )}
+                ))}
+              </div>
 
-              {modalType === 'hackathon' && (
-                <>
-                  <img
-                    src={selectedItem.image || Placeholder}
-                    alt={`${selectedItem.project} showcase`}
-                    style={styles.modalImage}
-                  />
-                  <div style={styles.modalContent}>
-                    <div style={styles.hackModalHeader}>
-                      <div style={styles.hackModalTitleGroup}>
-                        <Trophy size={32} color="#743636" />
-                        <div>
-                          <h2 style={styles.modalTitle}>{selectedItem.title}</h2>
-                          <p style={styles.hackModalProject}>{selectedItem.project}</p>
-                        </div>
-                      </div>
-                      <div style={styles.hackModalMeta}>
-                        <span style={styles.hackDate}>{selectedItem.date}</span>
-                        <span style={styles.hackDurationTag}>{selectedItem.duration}</span>
-                      </div>
-                    </div>
-                    <div style={styles.hackathonDetails}>
-                      <div style={styles.detailItem}>
-                        <strong>Achievement:</strong> {selectedItem.achievement}
-                      </div>
-                      <div style={styles.detailItem}>
-                        <strong>Team Size:</strong> {selectedItem.teamSize} members
-                      </div>
-                    </div>
-                    <p style={styles.modalDescription}>{selectedItem.description}</p>
-                    <div style={styles.techStack}>
-                      {selectedItem.tech.map((tech, i) => (
-                        <span key={i} style={styles.techBadge}>{tech}</span>
+              {/* LEADERSHIP */}
+              <div style={styles.rpgBox}>
+                <h3 style={styles.rpgHeader}>GUILD LEADERSHIP</h3>
+                {resumeData.leadership.map((role, idx) => (
+                  <div key={idx} style={{ marginBottom: '20px' }}>
+                    <h4 style={styles.rpgSubHeader}>{role.title} @ {role.organization}</h4>
+                    <p style={{ ...styles.rpgText, color: '#aaa', fontSize: '1rem' }}>{role.dates}</p>
+                    <ul style={styles.pixelList}>
+                      {role.description.map((desc, i) => (
+                        <li key={i} dangerouslySetInnerHTML={{ __html: formatText(desc) }} />
                       ))}
-                    </div>
-                    <div style={styles.modalButtons}>
-                      {selectedItem.devpostLink && (
-                        <a
-                          href={selectedItem.devpostLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          style={styles.primaryButton}
-                        >
-                          <ExternalLink size={20} />
-                          <span>View Devpost</span>
-                        </a>
-                      )}
-                      {selectedItem.repoLink && (
-                        <a
-                          href={selectedItem.repoLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          style={selectedItem.devpostLink ? styles.secondaryButton : styles.primaryButton}
-                        >
-                          <Github size={20} />
-                          <span>View Repository</span>
-                        </a>
-                      )}
-                    </div>
+                    </ul>
                   </div>
-                </>
-              )}
+                ))}
+                <div style={{ marginTop: '15px', padding: '10px', background: '#222', borderLeft: '4px solid #ff0055' }}>
+                  <p style={{ fontFamily: '"Press Start 2P"', fontSize: '0.7rem', color: '#fff' }}>OTHER AFFILIATIONS:</p>
+                  <p style={{ fontFamily: 'VT323', fontSize: '1.2rem', color: '#aaa' }}>UTD National Society of Black Engineers • Anime Orchestra Ensemble • InterVarsity Fellowship</p>
+                </div>
+              </div>
+
+              {/* HOBBIES */}
+              <div style={styles.rpgBox}>
+                <h3 style={styles.rpgHeader}>CHARACTER TRAITS (HOBBIES)</h3>
+                {resumeData.hobbies.map((hobby, idx) => (
+                  <div key={idx} style={{ marginBottom: '15px' }}>
+                    <h4 style={{ ...styles.rpgSubHeader, color: '#00e5ff' }}>{hobby.title}</h4>
+                    <p style={styles.rpgText}>{hobby.description}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div style={{ textAlign: 'center', marginTop: '20px' }}>
+                <a href={MayosResume} style={styles.downloadBtn}>DOWNLOAD_RESUME.PDF</a>
+              </div>
             </div>
           </div>
-        )
-      }
+        )}
 
-      <style>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
+        {activeSection === 'socials' && (
+          <div style={styles.section}>
+            <h2 style={styles.sectionTitle}>
+              <PixelIcon icon={Mail} color="#00ff00" />
+              MULTIPLAYER LOBBY
+            </h2>
+            <div style={styles.grid}>
+              {socials.map((social, idx) => (
+                <motion.a
+                  key={idx}
+                  href={social.link}
+                  target="_blank"
+                  whileHover={{ scale: 1.1, rotate: 2 }}
+                  style={{ ...styles.socialCard, borderColor: idx % 2 === 0 ? '#00e5ff' : '#ff0055' }}
+                >
+                  <social.icon size={48} color={idx % 2 === 0 ? "#00e5ff" : "#ff0055"} />
+                  <h3 style={styles.socialText}>{social.name}</h3>
+                  <span style={{ fontFamily: 'VT323', color: '#fff', fontSize: '1.2rem' }}>{social.username}</span>
+                </motion.a>
+              ))}
+            </div>
+          </div>
+        )}
+      </main>
 
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
+      {/* PIXEL MODAL */}
+      <AnimatePresence>
+        {selectedItem && (
+          <div style={styles.modalOverlay} onClick={closeModal}>
+            <motion.div
+              initial={{ scale: 0, rotate: -10 }}
+              animate={{ scale: 1, rotate: 0 }}
+              exit={{ scale: 0, rotate: 10 }}
+              style={styles.modal}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div style={styles.modalHeaderBar}>
+                <span>ITEM_DETAILS.exe</span>
+                <button onClick={closeModal} style={styles.closeBtn}><X size={16} /></button>
+              </div>
+              <div style={styles.modalInner}>
+                <img src={selectedItem.image || Placeholder} style={styles.modalImg} alt="detail" />
 
-        @keyframes slideIn {
-          from {
-            opacity: 0;
-            transform: translateX(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
+                {/* Modal Title Block */}
+                <div style={{ borderBottom: '2px solid #333', paddingBottom: '15px', marginBottom: '15px' }}>
+                  <h2 style={styles.modalTitle}>{selectedItem.title}</h2>
+                  {modalType === 'hackathon' && <p style={{ color: '#ffd700', fontFamily: 'VT323', fontSize: '1.4rem' }}>{selectedItem.achievement}</p>}
+                </div>
 
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-      `}</style>
-    </div >
+                {/* Tech Tags */}
+                <div style={{ marginBottom: '20px' }}>
+                  {selectedItem.tech.map((t, i) => (
+                    <span key={i} style={styles.techBadge}>{t}</span>
+                  ))}
+                </div>
+
+                {/* Description Rendering */}
+                <div style={styles.modalDesc}>
+                  {Array.isArray(selectedItem.description)
+                    ? selectedItem.description.map((desc, i) => (
+                      <p key={i} dangerouslySetInnerHTML={{ __html: formatText(desc) }} style={{ marginBottom: '10px' }} />
+                    ))
+                    : <p dangerouslySetInnerHTML={{ __html: formatText(selectedItem.description) }} />
+                  }
+                </div>
+
+                {/* Hackathon Specific Details */}
+                {modalType === 'hackathon' && (
+                  <div style={{ background: '#222', padding: '10px', marginBottom: '20px', border: '1px solid #444' }}>
+                    <p style={{ fontFamily: 'VT323', color: '#fff' }}><strong>Team Size:</strong> {selectedItem.teamSize}</p>
+                    <p style={{ fontFamily: 'VT323', color: '#fff' }}><strong>Duration:</strong> {selectedItem.duration}</p>
+                  </div>
+                )}
+
+                {/* Buttons */}
+                <div style={styles.actionRow}>
+                  {selectedItem.liveLink && selectedItem.liveLink !== '#' && (
+                    <a href={selectedItem.liveLink} style={{ ...styles.actionBtn, background: '#00ff00', color: 'black' }} target="_blank">
+                      <LinkIcon size={16} /> LAUNCH
+                    </a>
+                  )}
+                  {selectedItem.repoLink && (
+                    <a href={selectedItem.repoLink} style={styles.actionBtn} target="_blank">
+                      <Github size={16} /> SOURCE_CODE
+                    </a>
+                  )}
+                  {selectedItem.devpostLink && (
+                    <a href={selectedItem.devpostLink} style={{ ...styles.actionBtn, background: '#00e5ff', color: 'black' }} target="_blank">
+                      <ExternalLink size={16} /> DEVPOST
+                    </a>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+    </div>
   );
 }
 
+// --- RETRO STYLES ---
 const styles = {
   portfolio: {
     minHeight: '100vh',
-    background: 'linear-gradient(135deg, #F7E7CE 0%, #DBD5B2 100%)',
-    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    backgroundColor: '#1a1a2e',
+    color: '#e0e0e0',
+    fontFamily: '"VT323", monospace',
+    overflowX: 'hidden',
   },
   hero: {
-    position: 'relative',
-    background: 'linear-gradient(135deg, #562C2C 0%, #743636 100%)',
-    padding: '80px 20px',
     textAlign: 'center',
-    overflow: 'hidden',
+    padding: '80px 20px 40px',
+    background: 'linear-gradient(180deg, #16213e 0%, #1a1a2e 100%)',
+    borderBottom: '4px solid #000',
   },
-  heroContent: {
+  avatarContainer: {
+    width: '140px',
+    height: '140px',
+    margin: '0 auto 20px',
     position: 'relative',
-    zIndex: 2,
-    animation: 'fadeInUp 1s ease-out',
+    background: '#000',
+    padding: '4px',
+    border: '4px solid #fff',
+    boxShadow: '8px 8px 0px 0px #ff0055',
   },
-  heroDecoration: {
-    position: 'absolute',
-    top: '-50%',
-    right: '-10%',
-    width: '600px',
-    height: '600px',
-    background: 'rgba(219, 213, 178, 0.1)',
-    borderRadius: '50%',
-    animation: 'float 6s ease-in-out infinite',
-  },
-  profileCircle: {
-    width: '120px',
-    height: '120px',
-    borderRadius: '50%',
-    background: 'linear-gradient(135deg, #743636 0%, #562C2C 100%)',
-    margin: '0 auto 24px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    border: '4px solid #F7E7CE',
-    boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
-    animation: 'float 3s ease-in-out infinite',
-  },
-  name: {
-    fontSize: '48px',
-    fontWeight: '700',
-    color: '#F7E7CE',
-    margin: '0 0 8px 0',
-    letterSpacing: '-1px',
-  },
-  title: {
-    fontSize: '24px',
-    color: '#DBD5B2',
-    margin: '0 0 8px 0',
-    fontWeight: '500',
-  },
-  subtitle: {
-    fontSize: '16px',
-    color: '#F7E7CE',
-    opacity: 0.9,
-    margin: 0,
-  },
-  navigation: {
-    display: 'flex',
-    justifyContent: 'center',
-    gap: '16px',
-    padding: '32px 20px',
-    flexWrap: 'wrap',
-  },
-  navButton: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px',
-    padding: '12px 24px',
-    border: '2px solid #562C2C',
-    background: 'white',
-    borderRadius: '12px',
-    fontSize: '16px',
-    fontWeight: '600',
-    color: '#562C2C',
-    cursor: 'pointer',
-    transition: 'all 0.3s ease',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-  },
-  navButtonActive: {
-    background: 'linear-gradient(135deg, #562C2C 0%, #743636 100%)',
-    color: '#F7E7CE',
-    transform: 'translateY(-2px)',
-    boxShadow: '0 4px 12px rgba(86, 44, 44, 0.3)',
-  },
-  main: {
-    maxWidth: '1200px',
-    margin: '0 auto',
-    padding: '0 20px 80px',
-    width: '100%',
-    boxSizing: 'border-box',
-  },
-  section: {
-    animation: 'fadeInUp 0.6s ease-out',
-  },
-  sectionTitle: {
-    fontSize: '36px',
-    fontWeight: '700',
-    color: '#562C2C',
-    marginBottom: '32px',
-    textAlign: 'center',
-  },
-  grid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-    gap: '24px',
-  },
-  card: {
-    background: 'white',
-    borderRadius: '16px',
-    overflow: 'hidden',
-    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-    transition: 'all 0.3s ease',
-    animation: 'fadeInUp 0.6s ease-out',
-    border: '2px solid transparent',
-    cursor: 'pointer',
-  },
-  projectImage: {
-    position: 'relative',
-    width: '100%',
-    height: '200px',
-    overflow: 'hidden',
-  },
-  image: {
+  pixelAvatar: {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
   },
-  // --- START: UPDATED STATUS STYLES WITH STATIC TAG ---
-  statusDeployed: {
+  onlineStatus: {
+    width: '20px',
+    height: '20px',
+    background: '#00ff00',
     position: 'absolute',
-    top: '12px',
-    right: '55px',
-    padding: '6px 12px',
-    background: '#10b981',
-    color: 'white',
-    borderRadius: '20px',
-    fontSize: '12px',
-    fontWeight: '600',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+    bottom: '-10px',
+    right: '-10px',
+    border: '2px solid #000',
+    boxShadow: '2px 2px 0px 0px #000',
   },
-  statusWIP: {
-    position: 'absolute',
-    top: '12px',
-    right: '55px',
-    padding: '6px 12px',
-    background: '#f59e0b',
-    color: 'white',
-    borderRadius: '20px',
-    fontSize: '12px',
-    fontWeight: '600',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+  name: {
+    fontFamily: '"Press Start 2P", cursive',
+    fontSize: '2rem',
+    color: '#fff',
+    textShadow: '4px 4px #ff0055',
+    marginBottom: '10px',
+    lineHeight: '1.5',
   },
-  statusStatic: {
-    position: 'absolute',
-    top: '12px',
-    right: '55px',
-    padding: '6px 12px',
-    background: '#4b5563', // A dark grey/blue for static/private
-    color: 'white',
-    borderRadius: '20px',
-    fontSize: '12px',
-    fontWeight: '600',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+  levelBadge: {
+    display: 'inline-block',
+    background: '#000',
+    color: '#fff',
+    fontFamily: '"Press Start 2P", cursive',
+    fontSize: '0.8rem',
+    padding: '8px 16px',
+    border: '2px solid #333',
+    marginBottom: '15px',
   },
-  statusDeployed2: {
-    position: 'absolute',
-    top: '12px',
-    right: '12px',
-    padding: '6px 12px',
-    background: '#10b981',
-    color: 'white',
-    borderRadius: '20px',
-    fontSize: '12px',
-    fontWeight: '600',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+  subtitle: {
+    fontSize: '1.5rem',
+    color: '#00e5ff',
+    marginBottom: '15px',
+    letterSpacing: '1px',
+    maxWidth: '600px',
+    margin: '0 auto 15px',
   },
-  statusWIP2: {
-    position: 'absolute',
-    top: '12px',
-    right: '12px',
-    padding: '6px 12px',
-    background: '#f59e0b',
-    color: 'white',
-    borderRadius: '20px',
-    fontSize: '12px',
-    fontWeight: '600',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
-  },
-  statusStatic2: {
-    position: 'absolute',
-    top: '12px',
-    right: '12px',
-    padding: '6px 12px',
-    background: '#4b5563', // A dark grey/blue for static/private
-    color: 'white',
-    borderRadius: '20px',
-    fontSize: '12px',
-    fontWeight: '600',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
-  },
-  // --- END: UPDATED STATUS STYLES WITH STATIC TAG ---
-  cardContent: {
-    padding: '24px',
-  },
-  cardHeader: {
+  statsRow: {
     display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'start',
-    marginBottom: '12px',
+    justifyContent: 'center',
+    gap: '20px',
+    fontFamily: '"Press Start 2P", cursive',
+    fontSize: '0.7rem',
+  },
+  statItem: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+  },
+  navigation: {
+    display: 'flex',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    gap: '15px',
+    padding: '30px 20px',
+    background: '#1a1a2e',
+  },
+  navButton: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    background: '#222',
+    border: '4px solid #444',
+    borderBottom: '4px solid #111',
+    borderRight: '4px solid #111',
+    color: '#fff',
+    padding: '15px 25px',
+    borderRadius: '4px',
+    cursor: 'pointer',
+    fontFamily: '"Press Start 2P", cursive',
+    fontSize: '0.7rem',
+    outline: 'none',
+  },
+  navButtonActive: {
+    background: '#ff0055',
+    borderColor: '#ff99bb',
+    borderBottomColor: '#990033',
+    borderRightColor: '#990033',
+    boxShadow: '0 0 15px #ff0055',
+  },
+  main: {
+    maxWidth: '1000px',
+    margin: '0 auto',
+    padding: '0 20px 100px',
+  },
+  sectionTitle: {
+    fontFamily: '"Press Start 2P", cursive',
+    fontSize: '1.5rem',
+    color: '#fff',
+    marginBottom: '40px',
+    display: 'flex',
+    alignItems: 'center',
+    textShadow: '2px 2px #000',
+  },
+  grid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+    gap: '30px',
+  },
+  card: {
+    background: '#16213e',
+    border: '4px solid #00e5ff',
+    boxShadow: '8px 8px 0px 0px #005f6b',
+    cursor: 'pointer',
+    position: 'relative',
+    overflow: 'hidden',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  cardImageWrapper: {
+    height: '180px',
+    borderBottom: '4px solid #00e5ff',
+    position: 'relative',
+    background: '#000',
+    flexShrink: 0,
+  },
+  cardImage: {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    opacity: 0.9,
+  },
+  cardContent: {
+    padding: '20px',
+    flexGrow: 1,
+    display: 'flex',
+    flexDirection: 'column',
   },
   cardTitle: {
-    fontSize: '20px',
-    fontWeight: '700',
-    color: '#562C2C',
-    margin: 0,
-    flex: 1,
+    fontFamily: '"Press Start 2P", cursive',
+    fontSize: '1rem',
+    marginBottom: '10px',
+    color: '#00e5ff',
+    lineHeight: '1.4',
   },
-  cardDescription: {
-    fontSize: '14px',
-    color: '#34352C',
-    lineHeight: '1.6',
-    marginBottom: '16px',
+  cardBlurb: {
+    fontSize: '1.2rem',
+    color: '#cccccc',
+    marginBottom: '15px',
+    lineHeight: '1.2',
+    flexGrow: 1,
   },
   techStack: {
     display: 'flex',
     flexWrap: 'wrap',
     gap: '8px',
+    marginTop: 'auto',
   },
   techBadge: {
-    padding: '4px 12px',
-    background: 'linear-gradient(135deg, #DBD5B2 0%, #F7E7CE 100%)',
-    borderRadius: '20px',
-    fontSize: '12px',
-    fontWeight: '600',
-    color: '#562C2C',
+    background: '#333',
+    color: '#fff',
+    padding: '4px 8px',
+    fontSize: '0.9rem',
+    border: '1px solid #555',
+    fontFamily: '"VT323", monospace',
+    display: 'inline-block',
   },
-  hackCard: {
-    borderLeft: '4px solid #743636',
-    padding: 0,
-  },
-  hackImageWrapper: {
-    position: 'relative',
-    width: '100%',
-    height: '190px',
-    overflow: 'hidden',
-  },
-  hackImage: {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-    display: 'block',
-  },
-  hackDateBadge: {
-    position: 'absolute',
-    bottom: '12px',
-    right: '12px',
-    background: 'rgba(86, 44, 44, 0.85)',
-    color: '#F7E7CE',
-    padding: '6px 12px',
-    borderRadius: '12px',
-    fontSize: '12px',
-    fontWeight: '600',
-  },
-  hackCardBody: {
-    padding: '24px',
-  },
-  hackHeader: {
-    display: 'flex',
-    justifyContent: 'space-between',
+  achievementBadge: {
+    marginTop: '10px',
+    marginBottom: '10px',
+    background: '#ffd700',
+    color: '#000',
+    fontFamily: '"Press Start 2P", cursive',
+    fontSize: '0.6rem',
+    padding: '8px',
+    display: 'inline-flex',
     alignItems: 'center',
-    marginBottom: '12px',
+    gap: '6px',
+    boxShadow: '2px 2px 0 #b8860b',
   },
-  hackDate: {
-    fontSize: '12px',
-    color: '#743636',
-    fontWeight: '600',
-    background: '#F7E7CE',
-    padding: '4px 12px',
-    borderRadius: '20px',
-  },
-  hackProject: {
-    fontSize: '16px',
-    color: '#743636',
-    fontWeight: '600',
-    marginBottom: '8px',
-  },
-  achievement: {
-    marginTop: '16px',
-    padding: '8px 16px',
-    background: 'linear-gradient(135deg, #562C2C 0%, #743636 100%)',
-    color: '#F7E7CE',
-    borderRadius: '8px',
-    fontSize: '14px',
-    fontWeight: '600',
-    textAlign: 'center',
-  },
-  socialsGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-    gap: '24px',
-    maxWidth: '800px',
-    margin: '0 auto',
-  },
-  socialCard: {
-    background: 'white',
-    borderRadius: '16px',
-    padding: '32px',
-    textAlign: 'center',
-    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-    transition: 'all 0.3s ease',
-    display: 'block',
-    textDecoration: 'none',
-    color: '#562C2C',
-    border: '1px solid #ddd',
-    '&:hover': {
-      transform: 'translateY(-4px)',
-      boxShadow: '0 8px 16px rgba(0,0,0,0.15)',
-      border: '1px solid #743636',
-    },
-  },
-  socialIcon: {
-    color: '#743636',
-    marginBottom: '16px',
-  },
-  socialName: {
-    fontSize: '20px',
-    fontWeight: '700',
-    margin: '0 0 4px 0',
-  },
-  socialUsername: {
-    fontSize: '14px',
-    color: '#34352C',
-    margin: 0,
-  },
-  // Resume Styles
+  // RPG RESUME STYLES
   resumeContainer: {
-    background: 'white',
-    padding: '40px',
-    borderRadius: '16px',
-    boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
     display: 'flex',
     flexDirection: 'column',
     gap: '30px',
   },
-  resumeSection: {
-    borderBottom: '1px solid #eee',
-    paddingBottom: '20px',
-    '&:last-child': {
-      borderBottom: 'none',
-      paddingBottom: '0',
-    },
+  rpgBox: {
+    background: '#111',
+    border: '2px solid #fff',
+    padding: '25px',
+    boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.1)',
+    position: 'relative',
   },
-  resumeSectionTitle: {
-    fontSize: '24px',
-    fontWeight: '700',
-    color: '#743636',
-    borderBottom: '2px solid #F7E7CE',
-    paddingBottom: '8px',
+  rpgHeader: {
+    fontFamily: '"Press Start 2P", cursive',
+    color: '#ffd700',
+    fontSize: '1rem',
+    borderBottom: '2px solid #ffd700',
+    paddingBottom: '10px',
     marginBottom: '20px',
+    letterSpacing: '1px',
   },
-  resumeItem: {
-    marginBottom: '15px',
+  rpgSubHeader: {
+    fontFamily: '"Press Start 2P", cursive',
+    fontSize: '0.9rem',
+    color: '#fff',
+    marginBottom: '8px',
+    lineHeight: '1.4',
   },
-  resumeItemTitle: {
-    fontSize: '18px',
-    fontWeight: '600',
-    color: '#562C2C',
-    margin: '0 0 4px 0',
+  rpgText: {
+    fontSize: '1.3rem',
+    color: '#aaa',
+    lineHeight: '1.4',
+    marginBottom: '5px',
   },
-  resumeItemSubtitle: {
-    fontSize: '14px',
-    color: '#34352C',
-    margin: '0 0 8px 0',
-    fontStyle: 'italic',
-  },
-  resumeItemDetail: {
-    fontSize: '14px',
-    color: '#34352C',
-    margin: '0 0 4px 0',
-    '& strong': {
-      fontWeight: '700',
-    },
-  },
-  resumeList: {
-    paddingLeft: '20px',
-    margin: '8px 0 0 0',
-    fontSize: '14px',
-    color: '#34352C',
-    lineHeight: '1.6',
-    listStyleType: 'disc',
-    '& li': {
-      marginBottom: '4px',
-    },
-    '& strong': {
-      fontWeight: '700',
-      color: '#562C2C',
-    },
-  },
-  skillsGrid: {
+  skillGrid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
     gap: '20px',
   },
-  skillCategory: {
+  skillCol: {
+    marginBottom: '10px'
+  },
+  skillBarContainer: {
+    background: '#222',
     padding: '10px',
-    border: '1px solid #F7E7CE',
-    borderRadius: '8px',
-    background: '#fcfcf8',
+    border: '1px solid #444',
+    color: '#00e5ff',
+    fontSize: '1.1rem',
+    lineHeight: '1.4',
   },
-  skillCategoryTitle: {
-    fontSize: '16px',
-    fontWeight: '700',
-    color: '#743636',
-    marginBottom: '8px',
+  skillTitle: {
+    fontFamily: '"Press Start 2P", cursive',
+    fontSize: '0.7rem',
+    marginBottom: '10px',
+    color: '#ff0055',
   },
-  skillList: {
-    fontSize: '14px',
-    color: '#34352C',
-    margin: 0,
+  xpBadge: {
+    background: '#ff0055',
+    color: '#fff',
+    display: 'inline-block',
+    padding: '4px 8px',
+    fontFamily: '"Press Start 2P", cursive',
+    fontSize: '0.6rem',
+    marginBottom: '5px',
   },
-  resumeNote: {
-    textAlign: 'center',
-    fontSize: '14px',
-    color: '#562C2C',
-    marginTop: '20px',
-    fontStyle: 'italic',
+  pixelList: {
+    listStyle: 'square',
+    paddingLeft: '20px',
+    fontSize: '1.3rem',
+    lineHeight: '1.5',
+    color: '#ddd',
   },
-  // Modal Styles
+  downloadBtn: {
+    display: 'inline-block',
+    background: '#000',
+    color: '#00ff00',
+    border: '2px solid #00ff00',
+    padding: '15px 30px',
+    fontFamily: '"Press Start 2P", cursive',
+    textDecoration: 'none',
+    boxShadow: '4px 4px 0px 0px #005500',
+    transition: 'all 0.2s',
+  },
+  // SOCIALS
+  socialCard: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '30px',
+    background: '#000',
+    border: '2px solid #fff',
+    textDecoration: 'none',
+    boxShadow: '6px 6px 0px 0px #333',
+  },
+  socialText: {
+    fontFamily: '"Press Start 2P", cursive',
+    fontSize: '1rem',
+    margin: '15px 0 5px',
+    color: '#fff',
+  },
+  // MODAL
   modalOverlay: {
     position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    background: 'rgba(0, 0, 0, 0.7)',
+    top: 0, left: 0, right: 0, bottom: 0,
+    background: 'rgba(0,0,0,0.85)',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    zIndex: 1000,
-    animation: 'fadeIn 0.3s ease-out',
+    zIndex: 10000,
+    backdropFilter: 'blur(4px)',
   },
   modal: {
-    background: 'white',
-    borderRadius: '16px',
-    maxWidth: '800px',
     width: '90%',
+    maxWidth: '700px',
+    background: '#16213e',
+    border: '4px solid #fff',
+    boxShadow: '15px 15px 0px 0px #000',
+    display: 'flex',
+    flexDirection: 'column',
     maxHeight: '90vh',
-    overflowY: 'auto',
-    position: 'relative',
-    boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
-    animation: 'fadeInUp 0.4s ease-out',
   },
-  closeButton: {
-    position: 'absolute',
-    top: '10px',
-    left: '15px',
-    background: 'none',
-    borderRadius: 1000,
-    padding: 5,
-    paddingBottom: 3,
-    paddingTop: 3,
-    background: "#d6bcbcff",
+  modalHeaderBar: {
+    background: '#fff',
+    color: '#000',
+    padding: '8px 15px',
+    fontFamily: '"Press Start 2P", cursive',
+    fontSize: '0.8rem',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexShrink: 0,
+  },
+  closeBtn: {
+    background: 'red',
+    border: '2px solid #000',
     cursor: 'pointer',
-    color: '#562C2C',
-    zIndex: 100,
+    color: '#fff',
+    display: 'flex',
+    alignItems: 'center',
+    padding: '4px',
   },
-  modalImage: {
+  modalInner: {
+    padding: '20px',
+    overflowY: 'auto',
+  },
+  modalImg: {
     width: '100%',
-    height: '300px',
+    height: '250px',
     objectFit: 'cover',
-    borderTopLeftRadius: '16px',
-    borderTopRightRadius: '16px',
-  },
-  modalContent: {
-    padding: '30px',
-  },
-  modalHeader: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    border: '2px solid #fff',
     marginBottom: '20px',
-  },
-  hackModalHeader: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    gap: '16px',
-    flexWrap: 'wrap',
-    marginBottom: '20px',
-  },
-  hackModalTitleGroup: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '16px',
-  },
-  hackModalProject: {
-    margin: 0,
-    fontSize: '16px',
-    color: '#743636',
-    fontWeight: '600',
-  },
-  hackModalMeta: {
-    display: 'flex',
-    gap: '10px',
-    alignItems: 'center',
-  },
-  hackDurationTag: {
-    fontSize: '12px',
-    color: '#743636',
-    fontWeight: '600',
-    background: '#F7E7CE',
-    padding: '4px 10px',
-    borderRadius: '20px',
+    imageRendering: 'pixelated',
   },
   modalTitle: {
-    fontSize: '32px',
-    fontWeight: '700',
-    color: '#562C2C',
-    margin: 0,
+    fontFamily: '"Press Start 2P", cursive',
+    color: '#ff0055',
+    marginBottom: '5px',
+    lineHeight: '1.4',
+    fontSize: '1.2rem',
   },
-  modalDescription: {
-    fontSize: '16px',
-    color: '#34352C',
-    lineHeight: '1.8',
+  modalDesc: {
+    fontSize: '1.3rem',
+    lineHeight: '1.6',
+    color: '#e0e0e0',
     marginBottom: '20px',
-    whiteSpace: 'pre-wrap',
+    fontFamily: '"VT323", monospace',
   },
-  modalButtons: {
+  actionRow: {
     display: 'flex',
-    gap: '16px',
-    marginTop: '20px',
+    gap: '15px',
     flexWrap: 'wrap',
+    marginTop: '20px',
   },
-  primaryButton: {
+  actionBtn: {
     display: 'flex',
     alignItems: 'center',
     gap: '8px',
-    padding: '12px 24px',
-    background: 'linear-gradient(135deg, #743636 0%, #562C2C 100%)',
-    color: 'white',
-    borderRadius: '12px',
+    background: '#fff',
+    color: '#000',
+    padding: '12px 20px',
+    fontFamily: '"Press Start 2P", cursive',
+    fontSize: '0.7rem',
     textDecoration: 'none',
-    fontWeight: '600',
-    transition: 'opacity 0.3s ease',
-    '&:hover': {
-      opacity: 0.9,
-    },
-  },
-  secondaryButton: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px',
-    padding: '12px 24px',
-    background: 'white',
-    border: '2px solid #562C2C',
-    color: '#562C2C',
-    borderRadius: '12px',
-    textDecoration: 'none',
-    fontWeight: '600',
-    transition: 'background 0.3s ease',
-    '&:hover': {
-      background: '#F7E7CE',
-    },
-  },
-  hackathonDetails: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-    gap: '10px',
-    marginBottom: '20px',
-    padding: '15px',
-    background: '#F7E7CE',
-    borderRadius: '8px',
-  },
-  detailItem: {
-    fontSize: '14px',
-    color: '#34352C',
-    '& strong': {
-      color: '#743636',
-      fontWeight: '700',
-    },
-  },
-  downloadButton: {
-    textAlign: 'center',
-    marginTop: '30px',
-  },
-  downloadLink: {
-    display: 'inline-flex',
-    alignItems: 'center',
-    gap: '8px',
-    padding: '12px 24px',
-    background: '#743636',
-    color: 'white',
-    borderRadius: '12px',
-    textDecoration: 'none',
-    fontWeight: '600',
-    transition: 'opacity 0.3s ease',
-    '&:hover': {
-      opacity: 0.9,
-    },
+    boxShadow: '4px 4px 0px 0px #000',
   }
 };
