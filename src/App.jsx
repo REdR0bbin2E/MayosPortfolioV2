@@ -47,26 +47,35 @@ export default function Portfolio() {
 
   // --- FULL ORIGINAL DATA ---
   const profileName = "Mayowa Akinyede";
-  const profileTitle = "PLAYER 1: READY";
   const profileSubtitle = "Fullstack | Quantum Computing | Game Dev";
 
   const resumeData = {
     education: {
       university: "University of Texas at Dallas",
       degree: "B.S. in Computer Science; Minor in Business Intelligence & Analytics",
-      gpa: "3.7/4.0",
-      dates: "Aug. 2024 - May 2027",
+      gpa: "3.5/4.0",
+      dates: "Aug. 2024 - Dec 2027",
       location: "Richardson, TX",
       coursework: "Linear Algebra, Computer Architecture, Discrete Math"
     },
     skills: {
-      languages: "Java, C++, Swift, Lua, JavaScript, TypeScript, HTML/CSS, SQL",
+      languages: "Java, C++, Swift, Lua, JavaScript, TypeScript, HTML/CSS, SQL, Python",
       frameworks: "React, React Native, Electron, Node.js, Expo, Firebase",
       libraries: "Firebase SDK, Expo Router, Framer Motion, Reanimated, Axios",
       devTools: "Git, Figma, VS Code, Expo CLI",
-      concepts: "Data Structures, Algorithms, OOP, API Integration, UI/UX, Fullstack Dev"
+      concepts: "Data Structures, Algorithms, OOP, API Integration, UI/UX, Fullstack Dev, AI Integration"
     },
     experience: [
+      {
+        title: "Frontend Software Engineer",
+        company: "Nocturne Dream Logger (ACM Projects)",
+        location: "Richardson, TX",
+        dates: "Jan. 2025 - May 2025",
+        description: [
+          "Led frontend development for a 12-week cross-functional project, designing scalable architecture, reusable UI components, and intuitive navigation to enhance user experience and maintainability.",
+          "Engineered integration of **OpenAI GPT + DALL·E 3 APIs** for automated dream analysis, recurring theme detection, and AI-powered visual storytelling of user-submitted logs."
+        ]
+      },
       {
         title: "Technical Consultant Agent",
         company: "Best Buy - Geek Squad",
@@ -77,16 +86,6 @@ export default function Portfolio() {
           "Collaborated with a cross-functional **10-agent team**, contributing to knowledge sharing and consistently maintaining a **95% satisfaction rating** at the No. 1 ranked Best Buy in North Texas."
         ]
       },
-      {
-        title: "Frontend Software Engineer",
-        company: "ACM Projects",
-        location: "RIchardson, TX",
-        dates: "Jan. 2025 - May 2025",
-        description: [
-          "Led frontend development for a 12-week cross-functional project, designing scalable architecture, reusable UI components, and intuitive navigation to enhance user experience and maintainability.",
-          "Engineered integration of **OpenAI GPT + DALL·E 3 APIs** for automated dream analysis, recurring theme detection, and AI-powered visual storytelling of user-submitted logs."
-        ],
-      },
     ],
     projects: [
       {
@@ -94,7 +93,7 @@ export default function Portfolio() {
         tech: ["Electron", "Node.js", "OpenAI", "ElevenLabs", "Gemini API"],
         dates: "Oct. 2025 - Present",
         description: [
-          "Engineered an **AI-powered desktop dashboard** using **Electron**, consolidating productivity tools (Spotify, Zoom) into a unified interface with system stat monitoring and voice-controlled app management via **PowerShell**.",
+          "Engineering an **AI-powered desktop dashboard** using **Electron**, consolidating productivity tools (Spotify, Zoom) into a unified interface with system stat monitoring and voice-controlled app management via **PowerShell**.",
           "Integrated **GPT-4o (STT)** and **ElevenLabs (TTS)** for bidirectional voice interaction, alongside **NodeMailer** for email automation, **Spotify API** for media control, and **Gemini API** for document generation.",
           "Developed a companion **Chrome Extension** that parses resumes into JSON for autofilling applications and utilizes on-page text extraction for context-aware AI Q&A."
         ],
@@ -103,7 +102,10 @@ export default function Portfolio() {
         status: "WIP",
         liveLink: null,
         repoLink: null,
+        demoLink: "https://streamable.com/afgifk",
+        demoLink2: "https://streamable.com/s2t8we",
         test: true // Set to true so it appears in the Resume/Projects section
+
       },
       {
         title: "Crew Create",
@@ -118,6 +120,8 @@ export default function Portfolio() {
         status: "static",
         liveLink: null,
         repoLink: "https://github.com/REdR0bbin2E/UpdateWebsite",
+        demoLink: "https://streamable.com/9zt7hu",
+        demoLink2: null,
         test: true
       },
       {
@@ -133,6 +137,7 @@ export default function Portfolio() {
         status: "static",
         liveLink: null,
         repoLink: "https://github.com/REdR0bbin2E/Nocturne",
+        demoLink: "https://streamable.com/2wl9pp",
         test: true
       },
       {
@@ -149,6 +154,9 @@ export default function Portfolio() {
         status: "deployed",
         liveLink: null,
         repoLink: null,
+        demoLink: null,
+        demoLink2: null,
+
         test: false
       },
       {
@@ -160,6 +168,8 @@ export default function Portfolio() {
         status: "deployed",
         liveLink: null,
         repoLink: "https://github.com/janedoe/portfolio-site",
+        demoLink: null,
+        demoLink2: null,
         test: false
       },
       {
@@ -182,6 +192,8 @@ export default function Portfolio() {
         status: "WIP",
         liveLink: null,
         repoLink: null,
+        demoLink: null,
+        demoLink2: null,
         test: false
       }
     ],
@@ -189,14 +201,16 @@ export default function Portfolio() {
       {
         title: "Logistics Officer",
         organization: "ACM Community",
+        location: "UT Dallas",
         dates: "2024 - Present",
         description: [
-          "Organized **hands-on workshops** and socials with 50+ attendees, covering web/mobile development topics (React, Expo, CI/CD) to strengthen technical skills and peer collaboration."
+          "Organized **hands-on workshops and socials** with 50+ attendees, covering web/mobile development topics (React, Expo, CI/CD) to strengthen technical skills and peer collaboration."
         ]
       },
       {
         title: "Workshops Officer",
-        organization: "FinTech Workshop",
+        organization: "FinTech",
+        location: "UT Dallas",
         dates: "2024 - Present",
         description: [
           "Coordinated technical sessions on **blockchain, finance, and software engineering**, introducing students to emerging technologies and practical career applications through engaging events."
@@ -205,6 +219,7 @@ export default function Portfolio() {
       {
         title: "Peer Advisor",
         organization: "Residence Hall Housing (RHH)",
+        location: "UT Dallas",
         dates: "2024 - Present",
         description: [
           "Hosted monthly community events and provided peer mentorship, fostering residential engagement, academic support, and a positive student living environment for all residents."
@@ -296,71 +311,76 @@ export default function Portfolio() {
 
   const getStatusBadge = (status) => {
     const baseStyle = {
-      padding: '4px 8px',
-      fontSize: '12px',
-      fontFamily: '"Press Start 2P", cursive',
-      border: '2px solid #000',
-      boxShadow: '2px 2px 0px 0px #000',
-      color: '#000',
+      padding: '4px 10px',
+      fontSize: '0.7rem',
+      fontFamily: '"Inter", sans-serif',
+      fontWeight: '600',
+      border: '1px solid',
+      borderRadius: '4px',
+      color: '#fff',
       textTransform: 'uppercase',
-      display: 'inline-block'
+      display: 'inline-block',
+      letterSpacing: '0.5px',
     };
 
-    if (status === 'deployed') return { style: { ...baseStyle, background: '#00ff00' }, text: 'ONLINE' };
-    if (status === 'WIP') return { style: { ...baseStyle, background: '#ffff00' }, text: 'LOADING' };
-    if (status === 'static') return { style: { ...baseStyle, background: '#a8a8a8' }, text: 'LOCKED' };
-    return { style: baseStyle, text: 'UNKNOWN' };
+    if (status === 'deployed') return { style: { ...baseStyle, background: '#10b981', borderColor: '#059669' }, text: 'Live' };
+    if (status === 'WIP') return { style: { ...baseStyle, background: '#f59e0b', borderColor: '#d97706' }, text: 'In Progress' };
+    if (status === 'static') return { style: { ...baseStyle, background: '#6b7280', borderColor: '#4b5563' }, text: 'Completed' };
+    return { style: baseStyle, text: 'Unknown' };
   };
 
   return (
     <div style={styles.portfolio}>
-      {/* GLOBAL FONTS & CRT EFFECT */}
+      {/* GLOBAL FONTS */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
         
-        body { margin: 0; background-color: #1a1a2e; }
-        strong { color: #00e5ff; font-weight: normal; } /* Highlight bold words in cyan */
+        body { margin: 0; background-color: #f0f7ff; }
+        strong { color: #0052a3; font-weight: 600; }
         
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 12px; }
-        ::-webkit-scrollbar-track { background: #1a1a2e; border-left: 2px solid #333; }
-        ::-webkit-scrollbar-thumb { background: #ff0055; border: 2px solid #000; }
-        ::-webkit-scrollbar-thumb:hover { background: #ff4d88; }
-
-        /* CRT Scanline Effect */
-        .scanlines {
-          position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-          background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-          background-size: 100% 2px, 3px 100%;
-          pointer-events: none; z-index: 9999;
-        }
+        ::-webkit-scrollbar-track { background: #e8f2ff; }
+        ::-webkit-scrollbar-thumb { background: #4a90e2; border-radius: 6px; }
+        ::-webkit-scrollbar-thumb:hover { background: #2e5c9e; }
       `}</style>
-
-      <div className="scanlines"></div>
 
       <header style={styles.hero}>
         <div style={styles.heroContent}>
-          <div style={styles.avatarContainer}>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            style={styles.avatarContainer}
+          >
             <img src={Mayo} style={styles.pixelAvatar} alt="Profile" />
-            <div style={styles.onlineStatus}></div>
-          </div>
-          <h1 style={styles.name}>{profileName}</h1>
-          <div style={styles.levelBadge}>LEVEL 19 <span style={{ color: '#ff0055' }}>DEV</span></div>
-          <p style={styles.subtitle}>{profileSubtitle}</p>
-          <div style={styles.statsRow}>
-            <span style={styles.statItem}><Heart size={16} fill="red" color="red" /> HP 100/100</span>
-            <span style={styles.statItem}><Zap size={16} fill="yellow" color="yellow" /> MP 100/100</span>
-          </div>
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            style={styles.name}
+          >
+            {profileName}
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            style={styles.subtitle}
+          >
+            {profileSubtitle}
+          </motion.p>
         </div>
       </header>
 
-      {/* NES CONTROLLER STYLE NAV */}
+      {/* NAVIGATION */}
       <nav style={styles.navigation}>
         {['projects', 'hackathons', 'resume', 'socials'].map((section) => (
           <motion.button
             key={section}
-            whileHover={{ scale: 1.05, y: -4 }}
-            whileTap={{ scale: 0.95, y: 0 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
             style={{
               ...styles.navButton,
               ...(activeSection === section ? styles.navButtonActive : {})
@@ -371,7 +391,7 @@ export default function Portfolio() {
             {section === 'hackathons' && <Trophy size={20} />}
             {section === 'resume' && <User size={20} />}
             {section === 'socials' && <Award size={20} />}
-            <span style={{ marginTop: '8px' }}>{section.toUpperCase()}</span>
+            <span style={{ marginTop: '8px' }}>{section.charAt(0).toUpperCase() + section.slice(1)}</span>
           </motion.button>
         ))}
       </nav>
@@ -380,8 +400,8 @@ export default function Portfolio() {
         {activeSection === 'projects' && (
           <div style={styles.section}>
             <h2 style={styles.sectionTitle}>
-              <PixelIcon icon={Code} color="#00e5ff" />
-              SELECT MISSION
+              <Code size={28} style={{ marginRight: '15px', color: '#0052a3' }} />
+              Projects
             </h2>
             <div style={styles.grid}>
               {resumeData.projects.map((project, idx) => {
@@ -391,8 +411,8 @@ export default function Portfolio() {
                     key={idx}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: idx * 0.1 }}
-                    whileHover={{ scale: 1.02 }}
+                    transition={{ delay: idx * 0.05 }}
+                    whileHover={{ y: -4, boxShadow: '0 12px 24px rgba(0, 102, 204, 0.15)' }}
                     style={styles.card}
                     onClick={() => openModal(project, 'project')}
                   >
@@ -422,31 +442,32 @@ export default function Portfolio() {
         {activeSection === 'hackathons' && (
           <div style={styles.section}>
             <h2 style={styles.sectionTitle}>
-              <PixelIcon icon={Trophy} color="#ffd700" />
-              ACHIEVEMENTS
+              <Trophy size={28} style={{ marginRight: '15px', color: '#0052a3' }} />
+              Hackathons & Achievements
             </h2>
             <div style={styles.grid}>
               {hackathons.map((hack, idx) => (
                 <motion.div
                   key={idx}
-                  whileHover={{ scale: 1.02 }}
-                  style={{ ...styles.card, border: '4px solid #ffd700', boxShadow: '8px 8px 0px 0px #b8860b' }}
+                  whileHover={{ y: -4, boxShadow: '0 12px 24px rgba(0, 102, 204, 0.15)' }}
+                  style={{ ...styles.card, borderColor: '#0066cc' }}
                   onClick={() => openModal(hack, 'hackathon')}
                 >
                   <div style={styles.cardImageWrapper}>
                     <img src={hack.image || Placeholder} style={styles.cardImage} alt="hack" />
                   </div>
                   <div style={styles.cardContent}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-                      <span style={{ fontFamily: 'VT323', fontSize: '1.2rem', color: '#fff', background: '#333', padding: '2px 6px' }}>{hack.date}</span>
-                      <span style={{ fontFamily: 'VT323', fontSize: '1.2rem', color: '#ffd700' }}>{hack.duration}</span>
-                    </div>
-                    <h3 style={{ ...styles.cardTitle, color: '#ffd700', fontSize: '1.1rem' }}>{hack.title}</h3>
-                    <p style={{ color: '#fff', fontFamily: 'VT323', fontSize: '1.3rem', marginBottom: '8px' }}>Project: {hack.project}</p>
-                    <div style={styles.achievementBadge}>
-                      <Star size={12} fill="#000" /> {hack.achievement}
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 12, gap: 10 }}>
+                      <div>
+                        <h3 style={{ ...styles.cardTitle, color: '#0a2444', fontSize: '1rem', margin: 0 }}>{hack.title}</h3>
+                        <p style={{ color: '#0052a3', fontFamily: '"Inter", sans-serif', fontSize: '0.9rem', fontWeight: '600', margin: '4px 0 0 0' }}>Project: {hack.project}</p>
+                      </div>
+                      <span style={{ fontFamily: '"Inter", sans-serif', fontSize: '0.75rem', fontWeight: '600', color: '#2e5c9e', whiteSpace: 'nowrap' }}>{hack.date}</span>
                     </div>
                     <p style={styles.cardBlurb}>{hack.blurb}</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: 'auto', fontSize: '0.8rem', color: '#0052a3', fontWeight: '600' }}>
+                      <Star size={12} fill="#0052a3" /> {hack.duration}
+                    </div>
                   </div>
                 </motion.div>
               ))}
@@ -457,14 +478,14 @@ export default function Portfolio() {
         {activeSection === 'resume' && (
           <div style={styles.section}>
             <h2 style={styles.sectionTitle}>
-              <PixelIcon icon={User} color="#ff0055" />
-              PLAYER STATS
+              <User size={28} style={{ marginRight: '15px', color: '#0052a3' }} />
+              Experience & Skills
             </h2>
             <div style={styles.resumeContainer}>
 
               {/* EDUCATION - MAIN QUEST */}
               <div style={styles.rpgBox}>
-                <h3 style={styles.rpgHeader}>MAIN QUEST (EDUCATION)</h3>
+                <h3 style={styles.rpgHeader}>Education</h3>
                 <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '20px' }}>
                   <div>
                     <h4 style={styles.rpgSubHeader}>{resumeData.education.degree}</h4>
@@ -483,7 +504,7 @@ export default function Portfolio() {
 
               {/* SKILLS - INVENTORY */}
               <div style={styles.rpgBox}>
-                <h3 style={styles.rpgHeader}>INVENTORY (SKILLS)</h3>
+                <h3 style={styles.rpgHeader}>Skills</h3>
                 <div style={styles.skillGrid}>
                   {Object.entries(resumeData.skills).map(([key, value]) => (
                     <div key={key} style={styles.skillCol}>
@@ -496,7 +517,7 @@ export default function Portfolio() {
 
               {/* EXPERIENCE - SIDE QUESTS */}
               <div style={styles.rpgBox}>
-                <h3 style={styles.rpgHeader}>SIDE QUESTS (EXPERIENCE)</h3>
+                <h3 style={styles.rpgHeader}>Experience</h3>
                 {resumeData.experience.map((job, i) => (
                   <div key={i} style={{ marginBottom: '30px', borderBottom: i !== resumeData.experience.length - 1 ? '2px dashed #333' : 'none', paddingBottom: '20px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap' }}>
@@ -518,7 +539,7 @@ export default function Portfolio() {
 
               {/* PROJECTS (TEST=TRUE) */}
               <div style={styles.rpgBox}>
-                <h3 style={styles.rpgHeader}>COMPLETED RAIDS (PROJECTS)</h3>
+                <h3 style={styles.rpgHeader}>Featured Projects</h3>
                 {resumeData.projects.filter(p => p.test === true).map((project, idx) => (
                   <div key={idx} style={{ marginBottom: '20px', borderBottom: '2px dashed #333', paddingBottom: '20px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -542,7 +563,7 @@ export default function Portfolio() {
 
               {/* LEADERSHIP */}
               <div style={styles.rpgBox}>
-                <h3 style={styles.rpgHeader}>GUILD LEADERSHIP</h3>
+                <h3 style={styles.rpgHeader}>Leadership</h3>
                 {resumeData.leadership.map((role, idx) => (
                   <div key={idx} style={{ marginBottom: '20px' }}>
                     <h4 style={styles.rpgSubHeader}>{role.title} @ {role.organization}</h4>
@@ -554,15 +575,15 @@ export default function Portfolio() {
                     </ul>
                   </div>
                 ))}
-                <div style={{ marginTop: '15px', padding: '10px', background: '#222', borderLeft: '4px solid #ff0055' }}>
-                  <p style={{ fontFamily: '"Press Start 2P"', fontSize: '0.7rem', color: '#fff' }}>OTHER AFFILIATIONS:</p>
-                  <p style={{ fontFamily: 'VT323', fontSize: '1.2rem', color: '#aaa' }}>UTD National Society of Black Engineers • Anime Orchestra Ensemble • InterVarsity Fellowship</p>
+                <div style={{ marginTop: '15px', padding: '12px', background: '#f8f9fa', borderLeft: '4px solid #0066cc', borderRadius: '6px' }}>
+                  <p style={{ fontFamily: '"Inter", sans-serif', fontSize: '0.75rem', fontWeight: '600', color: '#0066cc', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Affiliations</p>
+                  <p style={{ fontFamily: '"Inter", sans-serif', fontSize: '0.95rem', color: '#666', margin: 0 }}>UTD National Society of Black Engineers • Anime Orchestra Ensemble • InterVarsity Fellowship</p>
                 </div>
               </div>
 
               {/* HOBBIES */}
               <div style={styles.rpgBox}>
-                <h3 style={styles.rpgHeader}>CHARACTER TRAITS (HOBBIES)</h3>
+                <h3 style={styles.rpgHeader}>Interests</h3>
                 {resumeData.hobbies.map((hobby, idx) => (
                   <div key={idx} style={{ marginBottom: '15px' }}>
                     <h4 style={{ ...styles.rpgSubHeader, color: '#00e5ff' }}>{hobby.title}</h4>
@@ -572,7 +593,7 @@ export default function Portfolio() {
               </div>
 
               <div style={{ textAlign: 'center', marginTop: '20px' }}>
-                <a href={MayosResume} style={styles.downloadBtn}>DOWNLOAD_RESUME.PDF</a>
+                <a href={MayosResume} style={styles.downloadBtn}>Download Resume</a>
               </div>
             </div>
           </div>
@@ -581,8 +602,8 @@ export default function Portfolio() {
         {activeSection === 'socials' && (
           <div style={styles.section}>
             <h2 style={styles.sectionTitle}>
-              <PixelIcon icon={Mail} color="#00ff00" />
-              MULTIPLAYER LOBBY
+              <Mail size={28} style={{ marginRight: '15px', color: '#0052a3' }} />
+              Connect
             </h2>
             <div style={styles.grid}>
               {socials.map((social, idx) => (
@@ -590,12 +611,12 @@ export default function Portfolio() {
                   key={idx}
                   href={social.link}
                   target="_blank"
-                  whileHover={{ scale: 1.1, rotate: 2 }}
-                  style={{ ...styles.socialCard, borderColor: idx % 2 === 0 ? '#00e5ff' : '#ff0055' }}
+                  whileHover={{ y: -4, boxShadow: '0 12px 24px rgba(0, 102, 204, 0.15)' }}
+                  style={{ ...styles.socialCard, borderColor: '#e8e8e8' }}
                 >
-                  <social.icon size={48} color={idx % 2 === 0 ? "#00e5ff" : "#ff0055"} />
+                  <social.icon size={40} color="#0052a3" />
                   <h3 style={styles.socialText}>{social.name}</h3>
-                  <span style={{ fontFamily: 'VT323', color: '#fff', fontSize: '1.2rem' }}>{social.username}</span>
+                  <span style={{ fontFamily: '"Inter", sans-serif', color: '#666', fontSize: '0.85rem' }}>{social.username}</span>
                 </motion.a>
               ))}
             </div>
@@ -608,23 +629,30 @@ export default function Portfolio() {
         {selectedItem && (
           <div style={styles.modalOverlay} onClick={closeModal}>
             <motion.div
-              initial={{ scale: 0, rotate: -10 }}
-              animate={{ scale: 1, rotate: 0 }}
-              exit={{ scale: 0, rotate: 10 }}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
               style={styles.modal}
               onClick={(e) => e.stopPropagation()}
             >
               <div style={styles.modalHeaderBar}>
-                <span>ITEM_DETAILS.exe</span>
-                <button onClick={closeModal} style={styles.closeBtn}><X size={16} /></button>
+                <span>{selectedItem.title}</span>
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={closeModal}
+                  style={styles.closeBtn}
+                >
+                  <X size={18} />
+                </motion.button>
               </div>
               <div style={styles.modalInner}>
                 <img src={selectedItem.image || Placeholder} style={styles.modalImg} alt="detail" />
 
                 {/* Modal Title Block */}
-                <div style={{ borderBottom: '2px solid #333', paddingBottom: '15px', marginBottom: '15px' }}>
+                <div style={{ borderBottom: '1px solid #d4e8f7', paddingBottom: '12px', marginBottom: '20px' }}>
                   <h2 style={styles.modalTitle}>{selectedItem.title}</h2>
-                  {modalType === 'hackathon' && <p style={{ color: '#ffd700', fontFamily: 'VT323', fontSize: '1.4rem' }}>{selectedItem.achievement}</p>}
+                  {modalType === 'hackathon' && <p style={{ color: '#0052a3', fontFamily: '"Inter", sans-serif', fontSize: '0.9rem', fontWeight: '600', margin: '6px 0 0 0' }}>Achievement: {selectedItem.achievement}</p>}
                 </div>
 
                 {/* Tech Tags */}
@@ -646,28 +674,71 @@ export default function Portfolio() {
 
                 {/* Hackathon Specific Details */}
                 {modalType === 'hackathon' && (
-                  <div style={{ background: '#222', padding: '10px', marginBottom: '20px', border: '1px solid #444' }}>
-                    <p style={{ fontFamily: 'VT323', color: '#fff' }}><strong>Team Size:</strong> {selectedItem.teamSize}</p>
-                    <p style={{ fontFamily: 'VT323', color: '#fff' }}><strong>Duration:</strong> {selectedItem.duration}</p>
+                  <div style={{ background: '#f0f7ff', padding: '12px', marginBottom: '20px', border: '1px solid #d4e8f7', borderRadius: '8px' }}>
+                    <p style={{ fontFamily: '"Inter", sans-serif', color: '#0a2444', fontSize: '0.9rem', margin: '0 0 6px 0' }}><strong>Team Size:</strong> {selectedItem.teamSize} people</p>
+                    <p style={{ fontFamily: '"Inter", sans-serif', color: '#0a2444', fontSize: '0.9rem', margin: 0 }}><strong>Duration:</strong> {selectedItem.duration}</p>
                   </div>
                 )}
 
                 {/* Buttons */}
                 <div style={styles.actionRow}>
                   {selectedItem.liveLink && selectedItem.liveLink !== '#' && (
-                    <a href={selectedItem.liveLink} style={{ ...styles.actionBtn, background: '#00ff00', color: 'black' }} target="_blank">
-                      <LinkIcon size={16} /> LAUNCH
-                    </a>
+                    <motion.a
+                      href={selectedItem.liveLink}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      style={{ ...styles.actionBtn, background: '#10b981', color: '#ffffff' }}
+                      target="_blank"
+                    >
+                      <LinkIcon size={16} /> View Live
+                    </motion.a>
                   )}
                   {selectedItem.repoLink && (
-                    <a href={selectedItem.repoLink} style={styles.actionBtn} target="_blank">
-                      <Github size={16} /> SOURCE_CODE
-                    </a>
+                    <motion.a
+                      href={selectedItem.repoLink}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      style={styles.actionBtn}
+                      target="_blank"
+                    >
+                      <Github size={16} /> View Code
+                    </motion.a>
                   )}
+
+                  {selectedItem.demoLink && (
+                    <motion.a
+                      href={selectedItem.demoLink}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      style={styles.actionBtn}
+                      target="_blank"
+                    >
+                      <ExternalLink size={16} /> Demo
+                    </motion.a>
+                  )}
+
+                  {selectedItem.demoLink2 && (
+                    <motion.a
+                      href={selectedItem.demoLink2}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      style={styles.actionBtn}
+                      target="_blank"
+                    >
+                      <ExternalLink size={16} /> Demo 2
+                    </motion.a>
+                  )}
+
                   {selectedItem.devpostLink && (
-                    <a href={selectedItem.devpostLink} style={{ ...styles.actionBtn, background: '#00e5ff', color: 'black' }} target="_blank">
-                      <ExternalLink size={16} /> DEVPOST
-                    </a>
+                    <motion.a
+                      href={selectedItem.devpostLink}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      style={{ ...styles.actionBtn, background: '#6366f1', color: '#ffffff' }}
+                      target="_blank"
+                    >
+                      <ExternalLink size={16} /> Devpost
+                    </motion.a>
                   )}
                 </div>
               </div>
@@ -684,153 +755,131 @@ export default function Portfolio() {
 const styles = {
   portfolio: {
     minHeight: '100vh',
-    backgroundColor: '#1a1a2e',
-    color: '#e0e0e0',
-    fontFamily: '"VT323", monospace',
+    backgroundColor: '#f0f7ff',
+    color: '#1a3a52',
+    fontFamily: '"Inter", sans-serif',
     overflowX: 'hidden',
   },
   hero: {
     textAlign: 'center',
-    padding: '80px 20px 40px',
-    background: 'linear-gradient(180deg, #16213e 0%, #1a1a2e 100%)',
-    borderBottom: '4px solid #000',
+    padding: '100px 20px 60px',
+    background: 'linear-gradient(180deg, #e8f4ff 0%, #f0f7ff 100%)',
+    borderBottom: '1px solid #d4e8f7',
+  },
+  heroContent: {
+    maxWidth: '600px',
+    margin: '0 auto',
   },
   avatarContainer: {
-    width: '140px',
-    height: '140px',
-    margin: '0 auto 20px',
+    width: '120px',
+    height: '120px',
+    margin: '0 auto 30px',
     position: 'relative',
-    background: '#000',
-    padding: '4px',
-    border: '4px solid #fff',
-    boxShadow: '8px 8px 0px 0px #ff0055',
+    background: '#ffffff',
+    borderRadius: '50%',
+    overflow: 'hidden',
+    border: '3px solid #0052a3',
+    boxShadow: '0 6px 20px rgba(0, 82, 163, 0.25)',
   },
   pixelAvatar: {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
   },
-  onlineStatus: {
-    width: '20px',
-    height: '20px',
-    background: '#00ff00',
-    position: 'absolute',
-    bottom: '-10px',
-    right: '-10px',
-    border: '2px solid #000',
-    boxShadow: '2px 2px 0px 0px #000',
-  },
   name: {
-    fontFamily: '"Press Start 2P", cursive',
-    fontSize: '2rem',
-    color: '#fff',
-    textShadow: '4px 4px #ff0055',
-    marginBottom: '10px',
-    lineHeight: '1.5',
-  },
-  levelBadge: {
-    display: 'inline-block',
-    background: '#000',
-    color: '#fff',
-    fontFamily: '"Press Start 2P", cursive',
-    fontSize: '0.8rem',
-    padding: '8px 16px',
-    border: '2px solid #333',
-    marginBottom: '15px',
+    fontFamily: '"Inter", sans-serif',
+    fontSize: '2.5rem',
+    fontWeight: '700',
+    color: '#0a2444',
+    marginBottom: '12px',
+    lineHeight: '1.3',
   },
   subtitle: {
-    fontSize: '1.5rem',
-    color: '#00e5ff',
-    marginBottom: '15px',
-    letterSpacing: '1px',
-    maxWidth: '600px',
-    margin: '0 auto 15px',
-  },
-  statsRow: {
-    display: 'flex',
-    justifyContent: 'center',
-    gap: '20px',
-    fontFamily: '"Press Start 2P", cursive',
-    fontSize: '0.7rem',
-  },
-  statItem: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px',
+    fontSize: '1.1rem',
+    color: '#2e5c9e',
+    marginBottom: '0',
+    letterSpacing: '0.5px',
+    fontWeight: '500',
   },
   navigation: {
     display: 'flex',
     justifyContent: 'center',
     flexWrap: 'wrap',
-    gap: '15px',
+    gap: '12px',
     padding: '30px 20px',
-    background: '#1a1a2e',
+    background: '#ffffff',
+    borderBottom: '2px solid #d4e8f7',
+    position: 'sticky',
+    top: 0,
+    zIndex: 100,
+    boxShadow: '0 2px 8px rgba(0, 82, 163, 0.06)',
   },
   navButton: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    background: '#222',
-    border: '4px solid #444',
-    borderBottom: '4px solid #111',
-    borderRight: '4px solid #111',
-    color: '#fff',
-    padding: '15px 25px',
-    borderRadius: '4px',
+    background: '#f0f7ff',
+    border: '1px solid #c5ddf0',
+    color: '#1a3a52',
+    padding: '12px 20px',
+    borderRadius: '8px',
     cursor: 'pointer',
-    fontFamily: '"Press Start 2P", cursive',
-    fontSize: '0.7rem',
+    fontFamily: '"Inter", sans-serif',
+    fontSize: '0.85rem',
+    fontWeight: '500',
     outline: 'none',
+    transition: 'all 0.3s ease',
   },
   navButtonActive: {
-    background: '#ff0055',
-    borderColor: '#ff99bb',
-    borderBottomColor: '#990033',
-    borderRightColor: '#990033',
-    boxShadow: '0 0 15px #ff0055',
+    background: '#0052a3',
+    color: '#ffffff',
+    borderColor: '#0052a3',
+    boxShadow: '0 4px 16px rgba(0, 82, 163, 0.4)',
   },
   main: {
-    maxWidth: '1000px',
+    maxWidth: '1100px',
     margin: '0 auto',
-    padding: '0 20px 100px',
+    padding: '60px 20px 100px',
   },
   sectionTitle: {
-    fontFamily: '"Press Start 2P", cursive',
-    fontSize: '1.5rem',
-    color: '#fff',
-    marginBottom: '40px',
+    fontFamily: '"Inter", sans-serif',
+    fontSize: '1.8rem',
+    fontWeight: '700',
+    color: '#0a2444',
+    marginBottom: '50px',
     display: 'flex',
     alignItems: 'center',
-    textShadow: '2px 2px #000',
   },
   grid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-    gap: '30px',
+    gap: '28px',
   },
   card: {
-    background: '#16213e',
-    border: '4px solid #00e5ff',
-    boxShadow: '8px 8px 0px 0px #005f6b',
+    background: '#ffffff',
+    border: '1px solid #d4e8f7',
+    borderRadius: '12px',
+    boxShadow: '0 2px 12px rgba(0, 82, 163, 0.08)',
     cursor: 'pointer',
     position: 'relative',
     overflow: 'hidden',
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
+    transition: 'all 0.3s ease',
   },
   cardImageWrapper: {
     height: '180px',
-    borderBottom: '4px solid #00e5ff',
+    borderBottom: '1px solid #d4e8f7',
     position: 'relative',
-    background: '#000',
+    background: '#e8f4ff',
     flexShrink: 0,
   },
   cardImage: {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
-    opacity: 0.9,
+    opacity: 0.95,
   },
   cardContent: {
     padding: '20px',
@@ -839,130 +888,149 @@ const styles = {
     flexDirection: 'column',
   },
   cardTitle: {
-    fontFamily: '"Press Start 2P", cursive',
-    fontSize: '1rem',
-    marginBottom: '10px',
-    color: '#00e5ff',
+    fontFamily: '"Inter", sans-serif',
+    fontSize: '1.1rem',
+    fontWeight: '600',
+    marginBottom: '8px',
+    color: '#0a2444',
     lineHeight: '1.4',
   },
   cardBlurb: {
-    fontSize: '1.2rem',
-    color: '#cccccc',
-    marginBottom: '15px',
-    lineHeight: '1.2',
+    fontSize: '0.95rem',
+    color: '#2e5c9e',
+    marginBottom: '12px',
+    lineHeight: '1.5',
     flexGrow: 1,
   },
   techStack: {
     display: 'flex',
     flexWrap: 'wrap',
-    gap: '8px',
+    gap: '6px',
     marginTop: 'auto',
   },
   techBadge: {
-    background: '#333',
-    color: '#fff',
-    padding: '4px 8px',
-    fontSize: '0.9rem',
-    border: '1px solid #555',
-    fontFamily: '"VT323", monospace',
+    background: '#e8f4ff',
+    color: '#0052a3',
+    padding: '4px 10px',
+    fontSize: '0.8rem',
+    border: '1px solid #c5ddf0',
+    fontFamily: '"Fira Code", monospace',
     display: 'inline-block',
+    borderRadius: '4px',
+    fontWeight: '500',
   },
   achievementBadge: {
     marginTop: '10px',
     marginBottom: '10px',
-    background: '#ffd700',
-    color: '#000',
-    fontFamily: '"Press Start 2P", cursive',
-    fontSize: '0.6rem',
-    padding: '8px',
+    background: '#fef3c7',
+    color: '#92400e',
+    fontFamily: '"Inter", sans-serif',
+    fontSize: '0.75rem',
+    fontWeight: '600',
+    padding: '6px 10px',
     display: 'inline-flex',
     alignItems: 'center',
     gap: '6px',
-    boxShadow: '2px 2px 0 #b8860b',
+    borderRadius: '4px',
+    border: '1px solid #fcd34d',
   },
   // RPG RESUME STYLES
   resumeContainer: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '30px',
+    gap: '40px',
   },
   rpgBox: {
-    background: '#111',
-    border: '2px solid #fff',
-    padding: '25px',
-    boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.1)',
+    background: '#ffffff',
+    border: '1px solid #d4e8f7',
+    padding: '30px',
+    borderRadius: '12px',
+    boxShadow: '0 2px 12px rgba(0, 82, 163, 0.08)',
     position: 'relative',
   },
   rpgHeader: {
-    fontFamily: '"Press Start 2P", cursive',
-    color: '#ffd700',
-    fontSize: '1rem',
-    borderBottom: '2px solid #ffd700',
-    paddingBottom: '10px',
-    marginBottom: '20px',
-    letterSpacing: '1px',
+    fontFamily: '"Inter", sans-serif',
+    color: '#0052a3',
+    fontSize: '1.1rem',
+    fontWeight: '700',
+    borderBottom: '2px solid #4a90e2',
+    paddingBottom: '12px',
+    marginBottom: '24px',
+    letterSpacing: '0.5px',
   },
   rpgSubHeader: {
-    fontFamily: '"Press Start 2P", cursive',
-    fontSize: '0.9rem',
-    color: '#fff',
+    fontFamily: '"Inter", sans-serif',
+    fontSize: '1rem',
+    fontWeight: '600',
+    color: '#0a2444',
     marginBottom: '8px',
     lineHeight: '1.4',
   },
   rpgText: {
-    fontSize: '1.3rem',
-    color: '#aaa',
-    lineHeight: '1.4',
+    fontSize: '0.95rem',
+    color: '#2e5c9e',
+    lineHeight: '1.6',
     marginBottom: '5px',
   },
   skillGrid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-    gap: '20px',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+    gap: '24px',
   },
   skillCol: {
-    marginBottom: '10px'
+    marginBottom: '0'
   },
   skillBarContainer: {
-    background: '#222',
-    padding: '10px',
-    border: '1px solid #444',
-    color: '#00e5ff',
-    fontSize: '1.1rem',
-    lineHeight: '1.4',
+    background: '#f0f7ff',
+    padding: '12px',
+    border: '1px solid #c5ddf0',
+    color: '#1a3a52',
+    fontSize: '0.95rem',
+    lineHeight: '1.6',
+    borderRadius: '6px',
+    fontFamily: '"Inter", sans-serif',
   },
   skillTitle: {
-    fontFamily: '"Press Start 2P", cursive',
-    fontSize: '0.7rem',
+    fontFamily: '"Inter", sans-serif',
+    fontSize: '0.75rem',
+    fontWeight: '700',
     marginBottom: '10px',
-    color: '#ff0055',
+    color: '#0052a3',
+    textTransform: 'uppercase',
+    letterSpacing: '0.5px',
   },
   xpBadge: {
-    background: '#ff0055',
-    color: '#fff',
+    background: '#d4e8f7',
+    color: '#0052a3',
     display: 'inline-block',
-    padding: '4px 8px',
-    fontFamily: '"Press Start 2P", cursive',
-    fontSize: '0.6rem',
-    marginBottom: '5px',
+    padding: '4px 10px',
+    fontFamily: '"Inter", sans-serif',
+    fontSize: '0.75rem',
+    fontWeight: '600',
+    marginBottom: '8px',
+    borderRadius: '4px',
+    border: '1px solid #a8d5f0',
   },
   pixelList: {
-    listStyle: 'square',
+    listStyle: 'disc',
     paddingLeft: '20px',
-    fontSize: '1.3rem',
-    lineHeight: '1.5',
-    color: '#ddd',
+    fontSize: '0.95rem',
+    lineHeight: '1.7',
+    color: '#1a3a52',
   },
   downloadBtn: {
     display: 'inline-block',
-    background: '#000',
-    color: '#00ff00',
-    border: '2px solid #00ff00',
-    padding: '15px 30px',
-    fontFamily: '"Press Start 2P", cursive',
+    background: '#0052a3',
+    color: '#ffffff',
+    border: 'none',
+    padding: '12px 28px',
+    fontFamily: '"Inter", sans-serif',
+    fontWeight: '600',
     textDecoration: 'none',
-    boxShadow: '4px 4px 0px 0px #005500',
-    transition: 'all 0.2s',
+    borderRadius: '8px',
+    transition: 'all 0.3s ease',
+    boxShadow: '0 4px 16px rgba(0, 82, 163, 0.3)',
+    cursor: 'pointer',
   },
   // SOCIALS
   socialCard: {
@@ -971,22 +1039,25 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     padding: '30px',
-    background: '#000',
-    border: '2px solid #fff',
+    background: '#ffffff',
+    border: '1px solid #d4e8f7',
     textDecoration: 'none',
-    boxShadow: '6px 6px 0px 0px #333',
+    borderRadius: '12px',
+    boxShadow: '0 2px 12px rgba(0, 82, 163, 0.08)',
+    transition: 'all 0.3s ease',
   },
   socialText: {
-    fontFamily: '"Press Start 2P", cursive',
+    fontFamily: '"Inter", sans-serif',
     fontSize: '1rem',
-    margin: '15px 0 5px',
-    color: '#fff',
+    fontWeight: '600',
+    margin: '12px 0 4px',
+    color: '#0a2444',
   },
   // MODAL
   modalOverlay: {
     position: 'fixed',
     top: 0, left: 0, right: 0, bottom: 0,
-    background: 'rgba(0,0,0,0.85)',
+    background: 'rgba(10, 36, 68, 0.4)',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -996,75 +1067,86 @@ const styles = {
   modal: {
     width: '90%',
     maxWidth: '700px',
-    background: '#16213e',
-    border: '4px solid #fff',
-    boxShadow: '15px 15px 0px 0px #000',
+    background: '#ffffff',
+    border: '1px solid #d4e8f7',
+    borderRadius: '16px',
+    boxShadow: '0 20px 60px rgba(0, 82, 163, 0.2)',
     display: 'flex',
     flexDirection: 'column',
     maxHeight: '90vh',
   },
   modalHeaderBar: {
-    background: '#fff',
-    color: '#000',
-    padding: '8px 15px',
-    fontFamily: '"Press Start 2P", cursive',
-    fontSize: '0.8rem',
+    background: '#f0f7ff',
+    color: '#0a2444',
+    padding: '16px 24px',
+    fontFamily: '"Inter", sans-serif',
+    fontSize: '0.9rem',
+    fontWeight: '600',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
     flexShrink: 0,
+    borderBottom: '1px solid #d4e8f7',
+    borderRadius: '16px 16px 0 0',
   },
   closeBtn: {
-    background: 'red',
-    border: '2px solid #000',
+    background: '#e8f4ff',
+    border: '1px solid #c5ddf0',
     cursor: 'pointer',
-    color: '#fff',
+    color: '#2e5c9e',
     display: 'flex',
     alignItems: 'center',
-    padding: '4px',
+    padding: '6px 8px',
+    borderRadius: '6px',
+    transition: 'all 0.2s ease',
   },
   modalInner: {
-    padding: '20px',
+    padding: '28px',
     overflowY: 'auto',
   },
   modalImg: {
     width: '100%',
     height: '250px',
     objectFit: 'cover',
-    border: '2px solid #fff',
-    marginBottom: '20px',
-    imageRendering: 'pixelated',
+    border: '1px solid #d4e8f7',
+    marginBottom: '24px',
+    borderRadius: '8px',
   },
   modalTitle: {
-    fontFamily: '"Press Start 2P", cursive',
-    color: '#ff0055',
-    marginBottom: '5px',
+    fontFamily: '"Inter", sans-serif',
+    color: '#0a2444',
+    marginBottom: '8px',
     lineHeight: '1.4',
-    fontSize: '1.2rem',
+    fontSize: '1.4rem',
+    fontWeight: '700',
   },
   modalDesc: {
-    fontSize: '1.3rem',
-    lineHeight: '1.6',
-    color: '#e0e0e0',
-    marginBottom: '20px',
-    fontFamily: '"VT323", monospace',
+    fontSize: '0.95rem',
+    lineHeight: '1.7',
+    color: '#1a3a52',
+    marginBottom: '24px',
+    fontFamily: '"Inter", sans-serif',
   },
   actionRow: {
     display: 'flex',
-    gap: '15px',
+    gap: '12px',
     flexWrap: 'wrap',
-    marginTop: '20px',
+    marginTop: '24px',
   },
   actionBtn: {
     display: 'flex',
     alignItems: 'center',
     gap: '8px',
-    background: '#fff',
-    color: '#000',
-    padding: '12px 20px',
-    fontFamily: '"Press Start 2P", cursive',
-    fontSize: '0.7rem',
+    background: '#0052a3',
+    color: '#ffffff',
+    padding: '10px 18px',
+    fontFamily: '"Inter", sans-serif',
+    fontSize: '0.85rem',
+    fontWeight: '600',
     textDecoration: 'none',
-    boxShadow: '4px 4px 0px 0px #000',
+    borderRadius: '8px',
+    border: 'none',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
   }
 };
