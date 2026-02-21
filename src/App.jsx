@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Youtube, Github, Linkedin, Mail, Instagram, ExternalLink, Award, Code, User, Trophy, X, ExternalLink as LinkIcon, Heart, Zap, Star } from 'lucide-react';
+import { Blocks, Youtube, Github, Linkedin, Mail, Instagram, ExternalLink, Award, Code, User, Trophy, X, ExternalLink as LinkIcon, Heart, Zap, Star } from 'lucide-react';
 import { animate, AnimatePresence, motion } from 'framer-motion';
 
 // --- Assets ---
@@ -14,6 +14,8 @@ import PersonalWebsite from './assets/PersonalWeb.png';
 import Placeholder from './assets/Placeholder1.jpg';
 import Navi2 from './assets/Navi2.png';
 import MayosResume from './assets/Mayowa_Akinyede_Resume.pdf';
+import Ragnarok from './assets/Ragnarok.png';
+import Quantum from './assets/Quantum.png';
 
 // --- PIXEL DECORATION COMPONENT ---
 const PixelIcon = ({ icon: Icon, color }) => (
@@ -45,6 +47,9 @@ export default function Portfolio() {
     setModalType(null);
   };
 
+
+
+
   // --- FULL ORIGINAL DATA ---
   const profileName = "Mayowa Akinyede";
   const profileSubtitle = "Fullstack | Quantum Computing | Game Dev";
@@ -54,7 +59,7 @@ export default function Portfolio() {
       university: "University of Texas at Dallas",
       degree: "B.S. in Computer Science; Minor in Business Intelligence & Analytics",
       gpa: "3.5/4.0",
-      dates: "Aug. 2024 - Dec 2027",
+      dates: "Aug. 2024",
       location: "Richardson, TX",
       coursework: "Linear Algebra, Computer Architecture, Discrete Math"
     },
@@ -89,7 +94,7 @@ export default function Portfolio() {
     ],
     projects: [
       {
-        title: "Navi (AI Dashboard)",
+        title: "Navi.v2 (AI Dashboard)",
         tech: ["Electron", "Node.js", "OpenAI", "ElevenLabs", "Gemini API"],
         dates: "Oct. 2025 - Present",
         description: [
@@ -108,16 +113,30 @@ export default function Portfolio() {
 
       },
       {
+        title: "Project: Ragnarok - RBX USER: RedRobbin23",
+        blurb: "A Vinland Saga / Norse Mythology Inspired Roblox Game",
+        description: ["This is a solo-developed action game heavily inspired by Norse mythology. The game is currently in its early testing phase, meaning the sole focus right now is on perfecting the combat and movement systems."
+          , "Send me your username for testing and Ill whitelist you so you can jump in, test the mechanics, and please reach out to me directly if you have any feedback, bugs, or questions related to development and testing! Also the code for the combat and movement system is made using a state system inspired setup."],
+        tech: ["Roblox Studio", "Lua", "Moon Animator", "Blender"],
+        image: Ragnarok,
+        status: "WIP",
+        liveLink: "https://www.roblox.com/games/80150039147564/Rag-Test",
+        repoLink: null,
+        demoLink: "https://streamable.com/szedsz",
+        demoLink2: "https://streamable.com/9uoig2",
+        test: false
+      },
+      {
         title: "Crew Create",
-        tech: ["React", "Vite", "Firebase"],
+        tech: ["React", "Vite", "Firebase", "No Gen-AI"],
         dates: "Jun. 2025 - Present",
         description: [
-          "Developing a **fullstack collaboration platform** for indie game developers to share projects, communicate in real-time, and streamline workflows, featuring responsive UI and optimized state management.",
-          "Implemented **Firebase authentication, real-time database, and monetization tools**, supporting secure user access, persistent project data, and integrated payment tracking for sustainable growth."
+          "Developing a **fullstack collaboration platform** for indie game developers to share projects, communicate in real-time, and streamline workflows. Featuring hand-made responsive UI and optimized state management.",
+          "Implemented **Firebase authentication, real-time database, and monetization tools**, supporting secure user access, persistent project data, and  payment tracking for sustainable growth."
         ],
         blurb: "Fullstack platform for indie game devs.",
         image: CrewCreate,
-        status: "static",
+        status: "WIP",
         liveLink: null,
         repoLink: "https://github.com/REdR0bbin2E/UpdateWebsite",
         demoLink: "https://streamable.com/9zt7hu",
@@ -141,13 +160,24 @@ export default function Portfolio() {
         test: true
       },
       {
+        title: "Quantum Computing Research",
+        blurb: "Research I've done on quantum qubit error mitigation.",
+        description: "Through an independent study and mentorship program, I conducted targeted research on quantum qubit error mitigation to address hardware noise and computational reliability. Utilizing Python and the Qiskit framework, the project focuses on analyzing error models and implementing software-level strategies to stabilize quantum circuits. This ongoing work explores practical solutions to one of the most significant challenges in modern quantum computing.",
+        tech: ["Qiskit", "Python"],
+        image: Quantum,
+        status: "static",
+        liveLink: null,
+        repoLink: null,
+        test: false
+      },
+      {
         title: "Interactive Elimination Game",
         tech: ["React", "Firebase", "Cloud Storage"],
         dates: "Oct. 2025",
         description: [
-          "Engineered a **real-time, browser-based voting and elimination game** utilizing **React** for the frontend and **Firebase Firestore** for instant data synchronization across all clients.",
-          "Developed a password-protected **Host Console (Admin)** to manage the game flow, including setting question rounds, adjusting player points, and managing elimination.",
-          "Implemented secure player registration with **Firebase Storage** for image uploads, ensuring a robust, full-stack application for live, interactive gameplay."
+          "Engineered a **real-time, browser-based voting and elimination game** using React for the frontend and **Firebase Firestore** for instant data synchronization across all clients.",
+          "Created a password-protected **Host Console (Admin)** to manage the game flow, including setting question rounds, changing player points, and managing elimination.",
+          "Implemented secure player registration with **Firebase Storage** for image uploads, ensuring a robust, full-stack application for live gameplay. If you'd like to check it out please let me know! Link is private for consent reasons."
         ],
         blurb: "Real-time voting and elimination game.",
         image: PaWebsite,
@@ -171,14 +201,15 @@ export default function Portfolio() {
         demoLink: null,
         demoLink2: null,
         test: false
-      },
+      }
+      ,
       {
         title: "Late Night Jammin (LNJ)",
         blurb: "Game jam style website for friend groups.",
         description: "WIP.",
         tech: ["TBD", "TBD", "TBD"],
         image: Placeholder,
-        status: "WIP",
+        status: null,
         liveLink: null,
         repoLink: null,
         test: false
@@ -189,7 +220,7 @@ export default function Portfolio() {
         description: "WIP.",
         tech: ["TBD", "TBD", "TBD"],
         image: Placeholder,
-        status: "WIP",
+        status: null,
         liveLink: null,
         repoLink: null,
         demoLink: null,
@@ -295,12 +326,32 @@ export default function Portfolio() {
     }
   ];
 
+  const researchAssessments = [
+    { link: "https://docs.google.com/document/d/1P9n5F55VIexlKzyS7Bg7nHKNUtiAgu2JcgRD1dDAst4/edit?usp=sharing" },
+    { link: "https://docs.google.com/document/d/1IrDdLbNw9wVrI16qvCJdTBCMh-1dT283Udcq-moBzOA/edit?usp=sharing" },
+    { link: "https://docs.google.com/document/d/1ZB7soTs3EaP0bMvjfv1DeBnsKfFIcn6Zgna-HO7O9ac/edit?usp=sharing" },
+    { link: "https://docs.google.com/document/d/1hgWC3GK7tb7H4M3t75ASKbqQEIevQTlTuBCvsRG9ZtM/edit?usp=sharing" },
+    { link: "https://docs.google.com/document/d/1dJ2_A7Lb51nbljOinu6m4eZQXAz9OKPiEvEgN2fyRAU/edit?usp=sharing" },
+
+  ];
+
+  const interviewAssessments = [
+    { link: "https://docs.google.com/document/d/1baypP68C4dZI1sGoQklR7NZCqaVYHpvJ2taZf_6fVfI/edit?usp=sharing" },
+
+  ];
+
+  const mentorAssesments = [
+    { link: "https://docs.google.com/document/d/1Kh7kvru2rHzEmec4ZnH1-Ik5v9kbS3MmRAv4ERFzQjQ/edit?usp=sharing" },
+    { link: "https://docs.google.com/document/d/1qW73gPKV0mLGVHN8chVrOb8E7knjxfKvcqlEEyIWxiY/edit?usp=sharing" },
+  ];
+
   const socials = [
     { name: "GitHub", icon: Github, link: "https://github.com/REdR0bbin2E", username: "@REdR0bbin2E" },
     { name: "LinkedIn", icon: Linkedin, link: "https://www.linkedin.com/in/mayowa-akinyede-cs/", username: "Mayowa Akinyede" },
     { name: "Email", icon: Mail, link: null, username: "Mayo.akin2@gmail.com" },
     { name: "Instagram", icon: Instagram, link: "https://www.instagram.com/akacompsci/", username: "@akacompsci" },
-    { name: "YouTube", icon: Youtube, link: null, username: "Coming Soon.." }
+    { name: "YouTube", icon: Youtube, link: null, username: "Coming Soon.." },
+    { name: "Roblox", icon: Blocks, link: "https://www.roblox.com/users/159131420/profile", username: "RedRobbin23" }
   ];
 
   // Helper to process text formatting (converting **text** to bold)
@@ -406,6 +457,8 @@ export default function Portfolio() {
             <div style={styles.grid}>
               {resumeData.projects.map((project, idx) => {
                 const badge = getStatusBadge(project.status);
+
+
                 return (
                   <motion.div
                     key={idx}
@@ -626,7 +679,7 @@ export default function Portfolio() {
 
       {/* PIXEL MODAL */}
       <AnimatePresence>
-        {selectedItem && (
+        {selectedItem && selectedItem.title === "Quantum Computing Research" && (
           <div style={styles.modalOverlay} onClick={closeModal}>
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -649,12 +702,6 @@ export default function Portfolio() {
               <div style={styles.modalInner}>
                 <img src={selectedItem.image || Placeholder} style={styles.modalImg} alt="detail" />
 
-                {/* Modal Title Block */}
-                <div style={{ borderBottom: '1px solid #d4e8f7', paddingBottom: '12px', marginBottom: '20px' }}>
-                  <h2 style={styles.modalTitle}>{selectedItem.title}</h2>
-                  {modalType === 'hackathon' && <p style={{ color: '#0052a3', fontFamily: '"Inter", sans-serif', fontSize: '0.9rem', fontWeight: '600', margin: '6px 0 0 0' }}>Achievement: {selectedItem.achievement}</p>}
-                </div>
-
                 {/* Tech Tags */}
                 <div style={{ marginBottom: '20px' }}>
                   {selectedItem.tech.map((t, i) => (
@@ -662,8 +709,9 @@ export default function Portfolio() {
                   ))}
                 </div>
 
+
                 {/* Description Rendering */}
-                <div style={styles.modalDesc}>
+                <div style={{ ...styles.modalDesc, marginTop: "5%" }}>
                   {Array.isArray(selectedItem.description)
                     ? selectedItem.description.map((desc, i) => (
                       <p key={i} dangerouslySetInnerHTML={{ __html: formatText(desc) }} style={{ marginBottom: '10px' }} />
@@ -672,82 +720,185 @@ export default function Portfolio() {
                   }
                 </div>
 
-                {/* Hackathon Specific Details */}
-                {modalType === 'hackathon' && (
-                  <div style={{ background: '#f0f7ff', padding: '12px', marginBottom: '20px', border: '1px solid #d4e8f7', borderRadius: '8px' }}>
-                    <p style={{ fontFamily: '"Inter", sans-serif', color: '#0a2444', fontSize: '0.9rem', margin: '0 0 6px 0' }}><strong>Team Size:</strong> {selectedItem.teamSize} people</p>
-                    <p style={{ fontFamily: '"Inter", sans-serif', color: '#0a2444', fontSize: '0.9rem', margin: 0 }}><strong>Duration:</strong> {selectedItem.duration}</p>
-                  </div>
-                )}
 
-                {/* Buttons */}
-                <div style={styles.actionRow}>
-                  {selectedItem.liveLink && selectedItem.liveLink !== '#' && (
-                    <motion.a
-                      href={selectedItem.liveLink}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      style={{ ...styles.actionBtn, background: '#10b981', color: '#ffffff' }}
-                      target="_blank"
-                    >
-                      <LinkIcon size={16} /> View Live
-                    </motion.a>
-                  )}
-                  {selectedItem.repoLink && (
-                    <motion.a
-                      href={selectedItem.repoLink}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      style={styles.actionBtn}
-                      target="_blank"
-                    >
-                      <Github size={16} /> View Code
-                    </motion.a>
-                  )}
-
-                  {selectedItem.demoLink && (
-                    <motion.a
-                      href={selectedItem.demoLink}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      style={styles.actionBtn}
-                      target="_blank"
-                    >
-                      <ExternalLink size={16} /> Demo
-                    </motion.a>
-                  )}
-
-                  {selectedItem.demoLink2 && (
-                    <motion.a
-                      href={selectedItem.demoLink2}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      style={styles.actionBtn}
-                      target="_blank"
-                    >
-                      <ExternalLink size={16} /> Demo 2
-                    </motion.a>
-                  )}
-
-                  {selectedItem.devpostLink && (
-                    <motion.a
-                      href={selectedItem.devpostLink}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      style={{ ...styles.actionBtn, background: '#6366f1', color: '#ffffff' }}
-                      target="_blank"
-                    >
-                      <ExternalLink size={16} /> Devpost
-                    </motion.a>
-                  )}
+                <div style={{}}>
+                  <h2>Mentor</h2>
+                  <a href='https://www.linkedin.com/in/jamiegillvalor/'>Jamie Lee Gill</a>
                 </div>
+
+
+                <div style={{ marginTop: "5%" }}>
+                  <h2>Mentor Assesments</h2>
+                  <div style={{ width: "100%" }}>
+                    {mentorAssesments.map((item, index) => (
+                      <motion.a whileHover={{ scale: 1.05 }} href={item.link} style={{ ...styles.techBadge, backgroundColor: "rgba(55, 14, 103, 0.8)", borderWidth: 1, borderColor: "black", margin: 3 }}>
+                        <h3 style={{ color: "white" }}>Mentor Assesment {index + 1}</h3>
+                      </motion.a>
+                    ))}
+                  </div>
+                </div>
+
+
+
+                <div style={{ marginTop: "5%" }}>
+                  <h2>Research Assesments</h2>
+                  <div style={{ width: "100%" }}>
+                    {researchAssessments.map((item, index) => (
+                      <motion.a whileHover={{ scale: 1.05 }} href={item.link} style={{ ...styles.techBadge, backgroundColor: "rgba(33, 126, 232, 0.5)", borderWidth: 1, borderColor: "black", margin: 3 }}>
+                        <h3 style={{ color: "white" }}>Research Assesment {index + 1}</h3>
+                      </motion.a>
+                    ))}
+                  </div>
+                </div>
+
+
+                <div style={{ marginTop: "5%" }}>
+                  <h2>Interview Assessments</h2>
+                  <div style={{ width: "100%" }}>
+
+                    {interviewAssessments.map((item, index) => (
+                      <motion.a whileHover={{ scale: 1.05 }} href={item.link} style={{ ...styles.techBadge, backgroundColor: "rgba(199, 33, 232, 0.8)", borderWidth: 1, borderColor: "black", margin: 3 }}>
+                        <h3 style={{ color: "white" }}>Interview Assesment {index + 1}</h3>
+                      </motion.a>
+                    ))}
+                  </div>
+                </div>
+
+
+
+
               </div>
             </motion.div>
           </div>
-        )}
-      </AnimatePresence>
 
-    </div>
+        )
+        }
+
+
+        {
+          selectedItem && selectedItem.title !== "Quantum Computing Research" && (
+            <div style={styles.modalOverlay} onClick={closeModal}>
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                style={styles.modal}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div style={styles.modalHeaderBar}>
+                  <span>{selectedItem.title}</span>
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={closeModal}
+                    style={styles.closeBtn}
+                  >
+                    <X size={18} />
+                  </motion.button>
+                </div>
+                <div style={styles.modalInner}>
+                  <img src={selectedItem.image || Placeholder} style={styles.modalImg} alt="detail" />
+
+                  {/* Modal Title Block */}
+                  <div style={{ borderBottom: '1px solid #d4e8f7', paddingBottom: '12px', marginBottom: '20px' }}>
+                    <h2 style={styles.modalTitle}>{selectedItem.title}</h2>
+                    {modalType === 'hackathon' && <p style={{ color: '#0052a3', fontFamily: '"Inter", sans-serif', fontSize: '0.9rem', fontWeight: '600', margin: '6px 0 0 0' }}>Achievement: {selectedItem.achievement}</p>}
+                  </div>
+
+                  {/* Tech Tags */}
+                  <div style={{ marginBottom: '20px' }}>
+                    {selectedItem.tech.map((t, i) => (
+                      <span key={i} style={styles.techBadge}>{t}</span>
+                    ))}
+                  </div>
+
+                  {/* Description Rendering */}
+                  <div style={styles.modalDesc}>
+                    {Array.isArray(selectedItem.description)
+                      ? selectedItem.description.map((desc, i) => (
+                        <p key={i} dangerouslySetInnerHTML={{ __html: formatText(desc) }} style={{ marginBottom: '10px' }} />
+                      ))
+                      : <p dangerouslySetInnerHTML={{ __html: formatText(selectedItem.description) }} />
+                    }
+                  </div>
+
+                  {/* Hackathon Specific Details */}
+                  {modalType === 'hackathon' && (
+                    <div style={{ background: '#f0f7ff', padding: '12px', marginBottom: '20px', border: '1px solid #d4e8f7', borderRadius: '8px' }}>
+                      <p style={{ fontFamily: '"Inter", sans-serif', color: '#0a2444', fontSize: '0.9rem', margin: '0 0 6px 0' }}><strong>Team Size:</strong> {selectedItem.teamSize} people</p>
+                      <p style={{ fontFamily: '"Inter", sans-serif', color: '#0a2444', fontSize: '0.9rem', margin: 0 }}><strong>Duration:</strong> {selectedItem.duration}</p>
+                    </div>
+                  )}
+
+                  {/* Buttons */}
+                  <div style={styles.actionRow}>
+                    {selectedItem.liveLink && selectedItem.liveLink !== '#' && (
+                      <motion.a
+                        href={selectedItem.liveLink}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        style={{ ...styles.actionBtn, background: '#10b981', color: '#ffffff' }}
+                        target="_blank"
+                      >
+                        <LinkIcon size={16} /> View Live
+                      </motion.a>
+                    )}
+                    {selectedItem.repoLink && (
+                      <motion.a
+                        href={selectedItem.repoLink}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        style={styles.actionBtn}
+                        target="_blank"
+                      >
+                        <Github size={16} /> View Code
+                      </motion.a>
+                    )}
+
+                    {selectedItem.demoLink && (
+                      <motion.a
+                        href={selectedItem.demoLink}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        style={styles.actionBtn}
+                        target="_blank"
+                      >
+                        <ExternalLink size={16} /> Demo
+                      </motion.a>
+                    )}
+
+                    {selectedItem.demoLink2 && (
+                      <motion.a
+                        href={selectedItem.demoLink2}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        style={styles.actionBtn}
+                        target="_blank"
+                      >
+                        <ExternalLink size={16} /> Demo 2
+                      </motion.a>
+                    )}
+
+                    {selectedItem.devpostLink && (
+                      <motion.a
+                        href={selectedItem.devpostLink}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        style={{ ...styles.actionBtn, background: '#6366f1', color: '#ffffff' }}
+                        target="_blank"
+                      >
+                        <ExternalLink size={16} /> Devpost
+                      </motion.a>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          )
+        }
+      </AnimatePresence >
+
+    </div >
   );
 }
 
