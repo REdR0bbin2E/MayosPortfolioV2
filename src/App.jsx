@@ -114,7 +114,7 @@ export default function Portfolio() {
       },
       {
         title: "Project: Ragnarok - RBX USER: RedRobbin23",
-        blurb: "A Vinland Saga / Norse Mythology Inspired Roblox Game",
+        blurb: "A Vinland Saga / Norse Mythology inspired Roblox game.",
         description: ["This is a solo-developed action game heavily inspired by Norse mythology. The game is currently in its early testing phase, meaning the sole focus right now is on perfecting the combat and movement systems."
           , "Send me your username for testing and Ill whitelist you so you can jump in, test the mechanics, and please reach out to me directly if you have any feedback, bugs, or questions related to development and testing! Also the code for the combat and movement system is made using a state system inspired setup."],
         tech: ["Roblox Studio", "Lua", "Moon Animator", "Blender"],
