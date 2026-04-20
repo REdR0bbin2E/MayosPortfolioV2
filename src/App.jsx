@@ -58,7 +58,7 @@ export default function Portfolio() {
     education: {
       university: "University of Texas at Dallas",
       degree: "B.S. in Computer Science; Minor in Business Intelligence & Analytics",
-      gpa: "3.5/4.0",
+      // gpa: "3.5/4.0",
       dates: "Aug. 2024",
       location: "Richardson, TX",
       coursework: "Linear Algebra, Computer Architecture, Discrete Math"
